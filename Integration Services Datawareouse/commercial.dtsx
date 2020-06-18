@@ -1,0 +1,2936 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="1/7/2020 3:35:22 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-MO13FAB"
+  DTS:CreatorName="DESKTOP-MO13FAB\a"
+  DTS:DTSID="{64351D6D-23DD-4D32-A55A-EE9D4F650539}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.1301.433"
+  DTS:LocaleID="1036"
+  DTS:ObjectName="commercial"
+  DTS:PackageType="5"
+  DTS:VersionBuild="100"
+  DTS:VersionGUID="{567266CB-E4C7-4C20-8039-787B05FE9871}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DESKTOP-MO13FAB\SQLEXPRESS.Services-db2]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{AB7B941D-B0A8-4A52-9BDF-14313F5DA7CF}"
+      DTS:ObjectName="DESKTOP-MO13FAB\SQLEXPRESS.Services-db2">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=DESKTOP-MO13FAB\SQLEXPRESS;Initial Catalog=Services-db2;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Gestionnaire de connexions Excel]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{3DB9ED25-DE3D-4F5D-BC88-D42D4DDA685B}"
+      DTS:ObjectName="Gestionnaire de connexions Excel">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\a\Desktop\database\database_services.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Gestionnaire de connexions Excel 1]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{CCFC9926-6036-4A5C-8A05-BBA7701BB109}"
+      DTS:ObjectName="Gestionnaire de connexions Excel 1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\a\Desktop\database\database_services.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Gestionnaire de connexions Excel 2]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{FC062EF4-670D-40B7-BF99-07F529D3BA72}"
+      DTS:ObjectName="Gestionnaire de connexions Excel 2">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\a\Desktop\database\base_fevrier.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Load datawarehouse  dimensions from God Sales Data"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tâche de flux de données"
+      DTS:DTSID="{B7A98692-9154-42BB-B9C6-833EB768F699}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Load datawarehouse  dimensions from God Sales Data"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Load datawarehouse  dimensions from God Sales Data\Commercial"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destination OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;4"
+              description="Destination OLE DB"
+              name="Commercial"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[mydb].[commercial]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les valeurs fournies pour les colonnes d'identité seront copiées à la destination. Si la valeur est définie à False, les valeurs des colonnes d'identité seront générées automatiquement à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les colonnes contenant la valeur NULL auront cette valeur NULL copiée à la destination. Si la valeur est définie à False, les colonnes contenant la valeur NULL auront leurs valeurs par défaut insérées à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie les options à utiliser avec le chargement rapide.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie quand les validations sont émises pendant l'insertion des données.  Une valeur égale à 0 spécifie qu'une validation sera émise à la fin de l'insertion des données.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load datawarehouse  dimensions from God Sales Data\Commercial.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-MO13FAB\SQLEXPRESS.Services-db2]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-MO13FAB\SQLEXPRESS.Services-db2]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Load datawarehouse  dimensions from God Sales Data\Commercial.Inputs[Entrée de destination OLE DB]"
+                  errorOrTruncationOperation="Insérer"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrée de destination OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load datawarehouse  dimensions from God Sales Data\Commercial.Inputs[Entrée de destination OLE DB].Columns[Commercial]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Commercial"
+                      externalMetadataColumnId="Package\Load datawarehouse  dimensions from God Sales Data\Commercial.Inputs[Entrée de destination OLE DB].ExternalColumns[COMMERCIAL]"
+                      lineageId="Package\Load datawarehouse  dimensions from God Sales Data\Final Tri Zone for Commercial.Outputs[Sortie de jointure de fusion].Columns[Commercial]" />
+                    <inputColumn
+                      refId="Package\Load datawarehouse  dimensions from God Sales Data\Commercial.Inputs[Entrée de destination OLE DB].Columns[idZONE]"
+                      cachedDataType="i4"
+                      cachedName="idZONE"
+                      externalMetadataColumnId="Package\Load datawarehouse  dimensions from God Sales Data\Commercial.Inputs[Entrée de destination OLE DB].ExternalColumns[zone_idZONE]"
+                      lineageId="Package\Load datawarehouse  dimensions from God Sales Data\Final Tri Zone for Commercial.Outputs[Sortie de jointure de fusion].Columns[idZONE]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Load datawarehouse  dimensions from God Sales Data\Commercial.Inputs[Entrée de destination OLE DB].ExternalColumns[idCOMMERCIAL]"
+                      dataType="i4"
+                      name="idCOMMERCIAL" />
+                    <externalMetadataColumn
+                      refId="Package\Load datawarehouse  dimensions from God Sales Data\Commercial.Inputs[Entrée de destination OLE DB].ExternalColumns[CODECOMMERCIAL]"
+                      dataType="wstr"
+                      length="45"
+                      name="CODECOMMERCIAL" />
+                    <externalMetadataColumn
+                      refId="Package\Load datawarehouse  dimensions from God Sales Data\Commercial.Inputs[Entrée de destination OLE DB].ExternalColumns[COMMERCIAL]"
+                      dataType="wstr"
+                      length="250"
+                      name="COMMERCIAL" />
+                    <externalMetadataColumn
+                      refId="Package\Load datawarehouse  dimensions from God Sales Data\Commercial.Inputs[Entrée de destination OLE DB].ExternalColumns[CNI]"
+                      dataType="wstr"
+                      length="45"
+                      name="CNI" />
+                    <externalMetadataColumn
+                      refId="Package\Load datawarehouse  dimensions from God Sales Data\Commercial.Inputs[Entrée de destination OLE DB].ExternalColumns[DATE_DE_NAISS]"
+                      dataType="wstr"
+                      length="45"
+                      name="DATE_DE_NAISS" />
+                    <externalMetadataColumn
+                      refId="Package\Load datawarehouse  dimensions from God Sales Data\Commercial.Inputs[Entrée de destination OLE DB].ExternalColumns[ADRESS]"
+                      dataType="wstr"
+                      length="45"
+                      name="ADRESS" />
+                    <externalMetadataColumn
+                      refId="Package\Load datawarehouse  dimensions from God Sales Data\Commercial.Inputs[Entrée de destination OLE DB].ExternalColumns[zone_idZONE]"
+                      dataType="i4"
+                      name="zone_idZONE" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load datawarehouse  dimensions from God Sales Data\Commercial.Outputs[Sortie d'erreur de destination OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de destination OLE DB"
+                  synchronousInputId="Package\Load datawarehouse  dimensions from God Sales Data\Commercial.Inputs[Entrée de destination OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load datawarehouse  dimensions from God Sales Data\Commercial.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load datawarehouse  dimensions from God Sales Data\Commercial.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load datawarehouse  dimensions from God Sales Data\Commercial.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load datawarehouse  dimensions from God Sales Data\Commercial.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load datawarehouse  dimensions from God Sales Data\Final Tri Zone for Commercial"
+              componentClassID="Microsoft.MergeJoin"
+              contactInfo="Jointure de fusion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;1"
+              description="Combine deux flux de données triés en un seul à l'aide de la jointure FULL, LEFT ou INNER. Nous recommandons cette transformation lorsque les flux de données peuvent être triés au niveau de leurs sources."
+              name="Final Tri Zone for Commercial"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le type de jointure à effectuer."
+                  name="JoinType"
+                  typeConverter="JoinType">2</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le nombre de colonnes dans la clé de tri."
+                  name="NumKeyColumns">1</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les valeurs NULL sont traitées comme valeurs égales."
+                  name="TreatNullsAsEqual">true</property>
+                <property
+                  dataType="System.Int32"
+                  description="Indique le nombre maximal de mémoires tampons demandées par entrée avant blocage."
+                  name="MaxBuffersPerInput">5</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Load datawarehouse  dimensions from God Sales Data\Final Tri Zone for Commercial.Inputs[Entrée gauche de jointure de fusion]"
+                  hasSideEffects="true"
+                  name="Entrée gauche de jointure de fusion">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load datawarehouse  dimensions from God Sales Data\Final Tri Zone for Commercial.Inputs[Entrée gauche de jointure de fusion].Columns[idZONE]"
+                      cachedDataType="i4"
+                      cachedName="idZONE"
+                      cachedSortKeyPosition="2"
+                      lineageId="Package\Load datawarehouse  dimensions from God Sales Data\Tri_zone.Outputs[Sortie de tri].Columns[idZONE]" />
+                    <inputColumn
+                      refId="Package\Load datawarehouse  dimensions from God Sales Data\Final Tri Zone for Commercial.Inputs[Entrée gauche de jointure de fusion].Columns[ZONE]"
+                      cachedDataType="wstr"
+                      cachedLength="45"
+                      cachedName="ZONE"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\Load datawarehouse  dimensions from God Sales Data\Tri_zone.Outputs[Sortie de tri].Columns[ZONE]" />
+                    <inputColumn
+                      refId="Package\Load datawarehouse  dimensions from God Sales Data\Final Tri Zone for Commercial.Inputs[Entrée gauche de jointure de fusion].Columns[DELIMITATION_GEO]"
+                      cachedDataType="wstr"
+                      cachedLength="45"
+                      cachedName="DELIMITATION_GEO"
+                      cachedSortKeyPosition="3"
+                      lineageId="Package\Load datawarehouse  dimensions from God Sales Data\Tri_zone.Outputs[Sortie de tri].Columns[DELIMITATION_GEO]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\Load datawarehouse  dimensions from God Sales Data\Final Tri Zone for Commercial.Inputs[Entrée droite de jointure de fusion]"
+                  hasSideEffects="true"
+                  name="Entrée droite de jointure de fusion">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load datawarehouse  dimensions from God Sales Data\Final Tri Zone for Commercial.Inputs[Entrée droite de jointure de fusion].Columns[ZONE]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="ZONE"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\Load datawarehouse  dimensions from God Sales Data\Tri_result.Outputs[Sortie de tri].Columns[ZONE]" />
+                    <inputColumn
+                      refId="Package\Load datawarehouse  dimensions from God Sales Data\Final Tri Zone for Commercial.Inputs[Entrée droite de jointure de fusion].Columns[Commercial]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Commercial"
+                      cachedSortKeyPosition="2"
+                      lineageId="Package\Load datawarehouse  dimensions from God Sales Data\Tri_result.Outputs[Sortie de tri].Columns[Commercial]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load datawarehouse  dimensions from God Sales Data\Final Tri Zone for Commercial.Outputs[Sortie de jointure de fusion]"
+                  name="Sortie de jointure de fusion">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load datawarehouse  dimensions from God Sales Data\Final Tri Zone for Commercial.Outputs[Sortie de jointure de fusion].Columns[idZONE]"
+                      dataType="i4"
+                      lineageId="Package\Load datawarehouse  dimensions from God Sales Data\Final Tri Zone for Commercial.Outputs[Sortie de jointure de fusion].Columns[idZONE]"
+                      name="idZONE">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Colonne d'entrée associée à cette colonne de sortie"
+                          name="InputColumnID">#{Package\Load datawarehouse  dimensions from God Sales Data\Final Tri Zone for Commercial.Inputs[Entrée gauche de jointure de fusion].Columns[idZONE]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load datawarehouse  dimensions from God Sales Data\Final Tri Zone for Commercial.Outputs[Sortie de jointure de fusion].Columns[Commercial]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Load datawarehouse  dimensions from God Sales Data\Final Tri Zone for Commercial.Outputs[Sortie de jointure de fusion].Columns[Commercial]"
+                      name="Commercial">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Colonne d'entrée associée à cette colonne de sortie"
+                          name="InputColumnID">#{Package\Load datawarehouse  dimensions from God Sales Data\Final Tri Zone for Commercial.Inputs[Entrée droite de jointure de fusion].Columns[Commercial]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load datawarehouse  dimensions from God Sales Data\Jointure zone and commerical"
+              componentClassID="Microsoft.MergeJoin"
+              contactInfo="Jointure de fusion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;1"
+              description="Combine deux flux de données triés en un seul à l'aide de la jointure FULL, LEFT ou INNER. Nous recommandons cette transformation lorsque les flux de données peuvent être triés au niveau de leurs sources."
+              name="Jointure zone and commerical"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le type de jointure à effectuer."
+                  name="JoinType"
+                  typeConverter="JoinType">2</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le nombre de colonnes dans la clé de tri."
+                  name="NumKeyColumns">1</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les valeurs NULL sont traitées comme valeurs égales."
+                  name="TreatNullsAsEqual">true</property>
+                <property
+                  dataType="System.Int32"
+                  description="Indique le nombre maximal de mémoires tampons demandées par entrée avant blocage."
+                  name="MaxBuffersPerInput">5</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Load datawarehouse  dimensions from God Sales Data\Jointure zone and commerical.Inputs[Entrée gauche de jointure de fusion]"
+                  hasSideEffects="true"
+                  name="Entrée gauche de jointure de fusion">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load datawarehouse  dimensions from God Sales Data\Jointure zone and commerical.Inputs[Entrée gauche de jointure de fusion].Columns[Commercial]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Commercial"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\Load datawarehouse  dimensions from God Sales Data\Tri_com.Outputs[Sortie de tri].Columns[Commercial]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\Load datawarehouse  dimensions from God Sales Data\Jointure zone and commerical.Inputs[Entrée droite de jointure de fusion]"
+                  hasSideEffects="true"
+                  name="Entrée droite de jointure de fusion">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load datawarehouse  dimensions from God Sales Data\Jointure zone and commerical.Inputs[Entrée droite de jointure de fusion].Columns[Commercial]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Commercial"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\Load datawarehouse  dimensions from God Sales Data\Tri_zone_com.Outputs[Sortie de tri].Columns[Commercial]" />
+                    <inputColumn
+                      refId="Package\Load datawarehouse  dimensions from God Sales Data\Jointure zone and commerical.Inputs[Entrée droite de jointure de fusion].Columns[Zone]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Zone"
+                      cachedSortKeyPosition="2"
+                      lineageId="Package\Load datawarehouse  dimensions from God Sales Data\Tri_zone_com.Outputs[Sortie de tri].Columns[Zone]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load datawarehouse  dimensions from God Sales Data\Jointure zone and commerical.Outputs[Sortie de jointure de fusion]"
+                  isSorted="true"
+                  name="Sortie de jointure de fusion">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load datawarehouse  dimensions from God Sales Data\Jointure zone and commerical.Outputs[Sortie de jointure de fusion].Columns[Zone]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Load datawarehouse  dimensions from God Sales Data\Jointure zone and commerical.Outputs[Sortie de jointure de fusion].Columns[Zone]"
+                      name="Zone">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Colonne d'entrée associée à cette colonne de sortie"
+                          name="InputColumnID">#{Package\Load datawarehouse  dimensions from God Sales Data\Jointure zone and commerical.Inputs[Entrée droite de jointure de fusion].Columns[Zone]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load datawarehouse  dimensions from God Sales Data\Jointure zone and commerical.Outputs[Sortie de jointure de fusion].Columns[Commercial]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Load datawarehouse  dimensions from God Sales Data\Jointure zone and commerical.Outputs[Sortie de jointure de fusion].Columns[Commercial]"
+                      name="Commercial"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Colonne d'entrée associée à cette colonne de sortie"
+                          name="InputColumnID">#{Package\Load datawarehouse  dimensions from God Sales Data\Jointure zone and commerical.Inputs[Entrée gauche de jointure de fusion].Columns[Commercial]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load datawarehouse  dimensions from God Sales Data\Multidiffusion"
+              componentClassID="Microsoft.Multicast"
+              contactInfo="Multidiffusion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;0"
+              description="Distribue chaque ligne d'entrée à chaque ligne dans au moins une sortie. Par exemple, connectez votre flux de données pour effectuer une copie des données afin que certaines valeurs puissent être masquées avant de les partager avec des partenaires externes."
+              name="Multidiffusion">
+              <inputs>
+                <input
+                  refId="Package\Load datawarehouse  dimensions from God Sales Data\Multidiffusion.Inputs[Multidiffusion entrée 1]"
+                  name="Multidiffusion entrée 1">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load datawarehouse  dimensions from God Sales Data\Multidiffusion.Outputs[Sortie de multidiffusion 2]"
+                  deleteOutputOnPathDetached="true"
+                  name="Sortie de multidiffusion 2"
+                  synchronousInputId="Package\Load datawarehouse  dimensions from God Sales Data\Multidiffusion.Inputs[Multidiffusion entrée 1]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Load datawarehouse  dimensions from God Sales Data\Multidiffusion.Outputs[Sortie de multidiffusion 7]"
+                  dangling="true"
+                  deleteOutputOnPathDetached="true"
+                  name="Sortie de multidiffusion 7"
+                  synchronousInputId="Package\Load datawarehouse  dimensions from God Sales Data\Multidiffusion.Inputs[Multidiffusion entrée 1]">
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load datawarehouse  dimensions from God Sales Data\multi_zone"
+              componentClassID="Microsoft.Multicast"
+              contactInfo="Multidiffusion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;0"
+              description="Distribue chaque ligne d'entrée à chaque ligne dans au moins une sortie. Par exemple, connectez votre flux de données pour effectuer une copie des données afin que certaines valeurs puissent être masquées avant de les partager avec des partenaires externes."
+              name="multi_zone">
+              <inputs>
+                <input
+                  refId="Package\Load datawarehouse  dimensions from God Sales Data\multi_zone.Inputs[Multidiffusion entrée 1]"
+                  name="Multidiffusion entrée 1">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load datawarehouse  dimensions from God Sales Data\multi_zone.Outputs[Multidiffusion sortie 1]"
+                  deleteOutputOnPathDetached="true"
+                  name="Multidiffusion sortie 1"
+                  synchronousInputId="Package\Load datawarehouse  dimensions from God Sales Data\multi_zone.Inputs[Multidiffusion entrée 1]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Load datawarehouse  dimensions from God Sales Data\multi_zone.Outputs[Sortie de multidiffusion 2]"
+                  dangling="true"
+                  deleteOutputOnPathDetached="true"
+                  name="Sortie de multidiffusion 2"
+                  synchronousInputId="Package\Load datawarehouse  dimensions from God Sales Data\multi_zone.Inputs[Multidiffusion entrée 1]">
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load datawarehouse  dimensions from God Sales Data\Sales Data"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="Source OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;7"
+              description="Source OLE DB"
+              name="Sales Data"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[dbo].[God_Sales_Data]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.String"
+                  description="Variable contenant la commande SQL à exécuter."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="Mappages entre les paramètres de la commande SQL et les variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load datawarehouse  dimensions from God Sales Data\Sales Data.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-MO13FAB\SQLEXPRESS.Services-db2]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-MO13FAB\SQLEXPRESS.Services-db2]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Load datawarehouse  dimensions from God Sales Data\Sales Data.Outputs[Sortie de source OLE DB]"
+                  name="Sortie de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load datawarehouse  dimensions from God Sales Data\Sales Data.Outputs[Sortie de source OLE DB].Columns[SALESID]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load datawarehouse  dimensions from God Sales Data\Sales Data.Outputs[Sortie de source OLE DB].ExternalColumns[SALESID]"
+                      lineageId="Package\Load datawarehouse  dimensions from God Sales Data\Sales Data.Outputs[Sortie de source OLE DB].Columns[SALESID]"
+                      name="SALESID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load datawarehouse  dimensions from God Sales Data\Sales Data.Outputs[Sortie de source OLE DB].Columns[YEAR]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load datawarehouse  dimensions from God Sales Data\Sales Data.Outputs[Sortie de source OLE DB].ExternalColumns[YEAR]"
+                      lineageId="Package\Load datawarehouse  dimensions from God Sales Data\Sales Data.Outputs[Sortie de source OLE DB].Columns[YEAR]"
+                      name="YEAR"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load datawarehouse  dimensions from God Sales Data\Sales Data.Outputs[Sortie de source OLE DB].Columns[Month]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load datawarehouse  dimensions from God Sales Data\Sales Data.Outputs[Sortie de source OLE DB].ExternalColumns[Month]"
+                      length="255"
+                      lineageId="Package\Load datawarehouse  dimensions from God Sales Data\Sales Data.Outputs[Sortie de source OLE DB].Columns[Month]"
+                      name="Month"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load datawarehouse  dimensions from God Sales Data\Sales Data.Outputs[Sortie de source OLE DB].Columns[WEEK]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load datawarehouse  dimensions from God Sales Data\Sales Data.Outputs[Sortie de source OLE DB].ExternalColumns[WEEK]"
+                      length="255"
+                      lineageId="Package\Load datawarehouse  dimensions from God Sales Data\Sales Data.Outputs[Sortie de source OLE DB].Columns[WEEK]"
+                      name="WEEK"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load datawarehouse  dimensions from God Sales Data\Sales Data.Outputs[Sortie de source OLE DB].Columns[N° POS]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load datawarehouse  dimensions from God Sales Data\Sales Data.Outputs[Sortie de source OLE DB].ExternalColumns[N° POS]"
+                      length="255"
+                      lineageId="Package\Load datawarehouse  dimensions from God Sales Data\Sales Data.Outputs[Sortie de source OLE DB].Columns[N° POS]"
+                      name="N° POS"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load datawarehouse  dimensions from God Sales Data\Sales Data.Outputs[Sortie de source OLE DB].Columns[POS NAME]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load datawarehouse  dimensions from God Sales Data\Sales Data.Outputs[Sortie de source OLE DB].ExternalColumns[POS NAME]"
+                      length="255"
+                      lineageId="Package\Load datawarehouse  dimensions from God Sales Data\Sales Data.Outputs[Sortie de source OLE DB].Columns[POS NAME]"
+                      name="POS NAME"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load datawarehouse  dimensions from God Sales Data\Sales Data.Outputs[Sortie de source OLE DB].Columns[CLASS]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load datawarehouse  dimensions from God Sales Data\Sales Data.Outputs[Sortie de source OLE DB].ExternalColumns[CLASS]"
+                      length="255"
+                      lineageId="Package\Load datawarehouse  dimensions from God Sales Data\Sales Data.Outputs[Sortie de source OLE DB].Columns[CLASS]"
+                      name="CLASS"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load datawarehouse  dimensions from God Sales Data\Sales Data.Outputs[Sortie de source OLE DB].Columns[Commercial]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load datawarehouse  dimensions from God Sales Data\Sales Data.Outputs[Sortie de source OLE DB].ExternalColumns[Commercial]"
+                      length="255"
+                      lineageId="Package\Load datawarehouse  dimensions from God Sales Data\Sales Data.Outputs[Sortie de source OLE DB].Columns[Commercial]"
+                      name="Commercial"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load datawarehouse  dimensions from God Sales Data\Sales Data.Outputs[Sortie de source OLE DB].Columns[ADRESS]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load datawarehouse  dimensions from God Sales Data\Sales Data.Outputs[Sortie de source OLE DB].ExternalColumns[ADRESS]"
+                      length="255"
+                      lineageId="Package\Load datawarehouse  dimensions from God Sales Data\Sales Data.Outputs[Sortie de source OLE DB].Columns[ADRESS]"
+                      name="ADRESS"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load datawarehouse  dimensions from God Sales Data\Sales Data.Outputs[Sortie de source OLE DB].Columns[MARQUE]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load datawarehouse  dimensions from God Sales Data\Sales Data.Outputs[Sortie de source OLE DB].ExternalColumns[MARQUE]"
+                      length="255"
+                      lineageId="Package\Load datawarehouse  dimensions from God Sales Data\Sales Data.Outputs[Sortie de source OLE DB].Columns[MARQUE]"
+                      name="MARQUE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load datawarehouse  dimensions from God Sales Data\Sales Data.Outputs[Sortie de source OLE DB].Columns[SEGMENT]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load datawarehouse  dimensions from God Sales Data\Sales Data.Outputs[Sortie de source OLE DB].ExternalColumns[SEGMENT]"
+                      length="255"
+                      lineageId="Package\Load datawarehouse  dimensions from God Sales Data\Sales Data.Outputs[Sortie de source OLE DB].Columns[SEGMENT]"
+                      name="SEGMENT"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load datawarehouse  dimensions from God Sales Data\Sales Data.Outputs[Sortie de source OLE DB].Columns[MODELES]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load datawarehouse  dimensions from God Sales Data\Sales Data.Outputs[Sortie de source OLE DB].ExternalColumns[MODELES]"
+                      length="255"
+                      lineageId="Package\Load datawarehouse  dimensions from God Sales Data\Sales Data.Outputs[Sortie de source OLE DB].Columns[MODELES]"
+                      name="MODELES"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load datawarehouse  dimensions from God Sales Data\Sales Data.Outputs[Sortie de source OLE DB].Columns[CODE]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load datawarehouse  dimensions from God Sales Data\Sales Data.Outputs[Sortie de source OLE DB].ExternalColumns[CODE]"
+                      length="255"
+                      lineageId="Package\Load datawarehouse  dimensions from God Sales Data\Sales Data.Outputs[Sortie de source OLE DB].Columns[CODE]"
+                      name="CODE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load datawarehouse  dimensions from God Sales Data\Sales Data.Outputs[Sortie de source OLE DB].Columns[QUANTITE VENDUE]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load datawarehouse  dimensions from God Sales Data\Sales Data.Outputs[Sortie de source OLE DB].ExternalColumns[QUANTITE VENDUE]"
+                      lineageId="Package\Load datawarehouse  dimensions from God Sales Data\Sales Data.Outputs[Sortie de source OLE DB].Columns[QUANTITE VENDUE]"
+                      name="QUANTITE VENDUE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load datawarehouse  dimensions from God Sales Data\Sales Data.Outputs[Sortie de source OLE DB].Columns[PRIX D'ACHAT]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load datawarehouse  dimensions from God Sales Data\Sales Data.Outputs[Sortie de source OLE DB].ExternalColumns[PRIX D'ACHAT]"
+                      lineageId="Package\Load datawarehouse  dimensions from God Sales Data\Sales Data.Outputs[Sortie de source OLE DB].Columns[PRIX D'ACHAT]"
+                      name="PRIX D'ACHAT"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load datawarehouse  dimensions from God Sales Data\Sales Data.Outputs[Sortie de source OLE DB].Columns[PRIX DE VENTE]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load datawarehouse  dimensions from God Sales Data\Sales Data.Outputs[Sortie de source OLE DB].ExternalColumns[PRIX DE VENTE]"
+                      lineageId="Package\Load datawarehouse  dimensions from God Sales Data\Sales Data.Outputs[Sortie de source OLE DB].Columns[PRIX DE VENTE]"
+                      name="PRIX DE VENTE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load datawarehouse  dimensions from God Sales Data\Sales Data.Outputs[Sortie de source OLE DB].Columns[SOURCE D'APPRO]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load datawarehouse  dimensions from God Sales Data\Sales Data.Outputs[Sortie de source OLE DB].ExternalColumns[SOURCE D'APPRO]"
+                      length="255"
+                      lineageId="Package\Load datawarehouse  dimensions from God Sales Data\Sales Data.Outputs[Sortie de source OLE DB].Columns[SOURCE D'APPRO]"
+                      name="SOURCE D'APPRO"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load datawarehouse  dimensions from God Sales Data\Sales Data.Outputs[Sortie de source OLE DB].Columns[STOCK DISPONIBLE]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load datawarehouse  dimensions from God Sales Data\Sales Data.Outputs[Sortie de source OLE DB].ExternalColumns[STOCK DISPONIBLE]"
+                      length="255"
+                      lineageId="Package\Load datawarehouse  dimensions from God Sales Data\Sales Data.Outputs[Sortie de source OLE DB].Columns[STOCK DISPONIBLE]"
+                      name="STOCK DISPONIBLE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load datawarehouse  dimensions from God Sales Data\Sales Data.Outputs[Sortie de source OLE DB].Columns[COMMANDE]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load datawarehouse  dimensions from God Sales Data\Sales Data.Outputs[Sortie de source OLE DB].ExternalColumns[COMMANDE]"
+                      length="255"
+                      lineageId="Package\Load datawarehouse  dimensions from God Sales Data\Sales Data.Outputs[Sortie de source OLE DB].Columns[COMMANDE]"
+                      name="COMMANDE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load datawarehouse  dimensions from God Sales Data\Sales Data.Outputs[Sortie de source OLE DB].Columns[Port]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load datawarehouse  dimensions from God Sales Data\Sales Data.Outputs[Sortie de source OLE DB].ExternalColumns[Port]"
+                      length="255"
+                      lineageId="Package\Load datawarehouse  dimensions from God Sales Data\Sales Data.Outputs[Sortie de source OLE DB].Columns[Port]"
+                      name="Port"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Load datawarehouse  dimensions from God Sales Data\Sales Data.Outputs[Sortie de source OLE DB].ExternalColumns[SALESID]"
+                      dataType="r8"
+                      name="SALESID" />
+                    <externalMetadataColumn
+                      refId="Package\Load datawarehouse  dimensions from God Sales Data\Sales Data.Outputs[Sortie de source OLE DB].ExternalColumns[YEAR]"
+                      dataType="r8"
+                      name="YEAR" />
+                    <externalMetadataColumn
+                      refId="Package\Load datawarehouse  dimensions from God Sales Data\Sales Data.Outputs[Sortie de source OLE DB].ExternalColumns[Month]"
+                      dataType="wstr"
+                      length="255"
+                      name="Month" />
+                    <externalMetadataColumn
+                      refId="Package\Load datawarehouse  dimensions from God Sales Data\Sales Data.Outputs[Sortie de source OLE DB].ExternalColumns[WEEK]"
+                      dataType="wstr"
+                      length="255"
+                      name="WEEK" />
+                    <externalMetadataColumn
+                      refId="Package\Load datawarehouse  dimensions from God Sales Data\Sales Data.Outputs[Sortie de source OLE DB].ExternalColumns[N° POS]"
+                      dataType="wstr"
+                      length="255"
+                      name="N° POS" />
+                    <externalMetadataColumn
+                      refId="Package\Load datawarehouse  dimensions from God Sales Data\Sales Data.Outputs[Sortie de source OLE DB].ExternalColumns[POS NAME]"
+                      dataType="wstr"
+                      length="255"
+                      name="POS NAME" />
+                    <externalMetadataColumn
+                      refId="Package\Load datawarehouse  dimensions from God Sales Data\Sales Data.Outputs[Sortie de source OLE DB].ExternalColumns[CLASS]"
+                      dataType="wstr"
+                      length="255"
+                      name="CLASS" />
+                    <externalMetadataColumn
+                      refId="Package\Load datawarehouse  dimensions from God Sales Data\Sales Data.Outputs[Sortie de source OLE DB].ExternalColumns[Commercial]"
+                      dataType="wstr"
+                      length="255"
+                      name="Commercial" />
+                    <externalMetadataColumn
+                      refId="Package\Load datawarehouse  dimensions from God Sales Data\Sales Data.Outputs[Sortie de source OLE DB].ExternalColumns[ADRESS]"
+                      dataType="wstr"
+                      length="255"
+                      name="ADRESS" />
+                    <externalMetadataColumn
+                      refId="Package\Load datawarehouse  dimensions from God Sales Data\Sales Data.Outputs[Sortie de source OLE DB].ExternalColumns[MARQUE]"
+                      dataType="wstr"
+                      length="255"
+                      name="MARQUE" />
+                    <externalMetadataColumn
+                      refId="Package\Load datawarehouse  dimensions from God Sales Data\Sales Data.Outputs[Sortie de source OLE DB].ExternalColumns[SEGMENT]"
+                      dataType="wstr"
+                      length="255"
+                      name="SEGMENT" />
+                    <externalMetadataColumn
+                      refId="Package\Load datawarehouse  dimensions from God Sales Data\Sales Data.Outputs[Sortie de source OLE DB].ExternalColumns[MODELES]"
+                      dataType="wstr"
+                      length="255"
+                      name="MODELES" />
+                    <externalMetadataColumn
+                      refId="Package\Load datawarehouse  dimensions from God Sales Data\Sales Data.Outputs[Sortie de source OLE DB].ExternalColumns[CODE]"
+                      dataType="wstr"
+                      length="255"
+                      name="CODE" />
+                    <externalMetadataColumn
+                      refId="Package\Load datawarehouse  dimensions from God Sales Data\Sales Data.Outputs[Sortie de source OLE DB].ExternalColumns[QUANTITE VENDUE]"
+                      dataType="i4"
+                      name="QUANTITE VENDUE" />
+                    <externalMetadataColumn
+                      refId="Package\Load datawarehouse  dimensions from God Sales Data\Sales Data.Outputs[Sortie de source OLE DB].ExternalColumns[PRIX D'ACHAT]"
+                      dataType="i4"
+                      name="PRIX D'ACHAT" />
+                    <externalMetadataColumn
+                      refId="Package\Load datawarehouse  dimensions from God Sales Data\Sales Data.Outputs[Sortie de source OLE DB].ExternalColumns[PRIX DE VENTE]"
+                      dataType="i4"
+                      name="PRIX DE VENTE" />
+                    <externalMetadataColumn
+                      refId="Package\Load datawarehouse  dimensions from God Sales Data\Sales Data.Outputs[Sortie de source OLE DB].ExternalColumns[SOURCE D'APPRO]"
+                      dataType="wstr"
+                      length="255"
+                      name="SOURCE D'APPRO" />
+                    <externalMetadataColumn
+                      refId="Package\Load datawarehouse  dimensions from God Sales Data\Sales Data.Outputs[Sortie de source OLE DB].ExternalColumns[STOCK DISPONIBLE]"
+                      dataType="wstr"
+                      length="255"
+                      name="STOCK DISPONIBLE" />
+                    <externalMetadataColumn
+                      refId="Package\Load datawarehouse  dimensions from God Sales Data\Sales Data.Outputs[Sortie de source OLE DB].ExternalColumns[COMMANDE]"
+                      dataType="wstr"
+                      length="255"
+                      name="COMMANDE" />
+                    <externalMetadataColumn
+                      refId="Package\Load datawarehouse  dimensions from God Sales Data\Sales Data.Outputs[Sortie de source OLE DB].ExternalColumns[Port]"
+                      dataType="wstr"
+                      length="255"
+                      name="Port" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Load datawarehouse  dimensions from God Sales Data\Sales Data.Outputs[Sortie d'erreur de source OLE DB]"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load datawarehouse  dimensions from God Sales Data\Sales Data.Outputs[Sortie d'erreur de source OLE DB].Columns[SALESID]"
+                      dataType="r8"
+                      lineageId="Package\Load datawarehouse  dimensions from God Sales Data\Sales Data.Outputs[Sortie d'erreur de source OLE DB].Columns[SALESID]"
+                      name="SALESID" />
+                    <outputColumn
+                      refId="Package\Load datawarehouse  dimensions from God Sales Data\Sales Data.Outputs[Sortie d'erreur de source OLE DB].Columns[YEAR]"
+                      dataType="r8"
+                      lineageId="Package\Load datawarehouse  dimensions from God Sales Data\Sales Data.Outputs[Sortie d'erreur de source OLE DB].Columns[YEAR]"
+                      name="YEAR" />
+                    <outputColumn
+                      refId="Package\Load datawarehouse  dimensions from God Sales Data\Sales Data.Outputs[Sortie d'erreur de source OLE DB].Columns[Month]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Load datawarehouse  dimensions from God Sales Data\Sales Data.Outputs[Sortie d'erreur de source OLE DB].Columns[Month]"
+                      name="Month" />
+                    <outputColumn
+                      refId="Package\Load datawarehouse  dimensions from God Sales Data\Sales Data.Outputs[Sortie d'erreur de source OLE DB].Columns[WEEK]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Load datawarehouse  dimensions from God Sales Data\Sales Data.Outputs[Sortie d'erreur de source OLE DB].Columns[WEEK]"
+                      name="WEEK" />
+                    <outputColumn
+                      refId="Package\Load datawarehouse  dimensions from God Sales Data\Sales Data.Outputs[Sortie d'erreur de source OLE DB].Columns[N° POS]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Load datawarehouse  dimensions from God Sales Data\Sales Data.Outputs[Sortie d'erreur de source OLE DB].Columns[N° POS]"
+                      name="N° POS" />
+                    <outputColumn
+                      refId="Package\Load datawarehouse  dimensions from God Sales Data\Sales Data.Outputs[Sortie d'erreur de source OLE DB].Columns[POS NAME]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Load datawarehouse  dimensions from God Sales Data\Sales Data.Outputs[Sortie d'erreur de source OLE DB].Columns[POS NAME]"
+                      name="POS NAME" />
+                    <outputColumn
+                      refId="Package\Load datawarehouse  dimensions from God Sales Data\Sales Data.Outputs[Sortie d'erreur de source OLE DB].Columns[CLASS]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Load datawarehouse  dimensions from God Sales Data\Sales Data.Outputs[Sortie d'erreur de source OLE DB].Columns[CLASS]"
+                      name="CLASS" />
+                    <outputColumn
+                      refId="Package\Load datawarehouse  dimensions from God Sales Data\Sales Data.Outputs[Sortie d'erreur de source OLE DB].Columns[Commercial]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Load datawarehouse  dimensions from God Sales Data\Sales Data.Outputs[Sortie d'erreur de source OLE DB].Columns[Commercial]"
+                      name="Commercial" />
+                    <outputColumn
+                      refId="Package\Load datawarehouse  dimensions from God Sales Data\Sales Data.Outputs[Sortie d'erreur de source OLE DB].Columns[ADRESS]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Load datawarehouse  dimensions from God Sales Data\Sales Data.Outputs[Sortie d'erreur de source OLE DB].Columns[ADRESS]"
+                      name="ADRESS" />
+                    <outputColumn
+                      refId="Package\Load datawarehouse  dimensions from God Sales Data\Sales Data.Outputs[Sortie d'erreur de source OLE DB].Columns[MARQUE]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Load datawarehouse  dimensions from God Sales Data\Sales Data.Outputs[Sortie d'erreur de source OLE DB].Columns[MARQUE]"
+                      name="MARQUE" />
+                    <outputColumn
+                      refId="Package\Load datawarehouse  dimensions from God Sales Data\Sales Data.Outputs[Sortie d'erreur de source OLE DB].Columns[SEGMENT]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Load datawarehouse  dimensions from God Sales Data\Sales Data.Outputs[Sortie d'erreur de source OLE DB].Columns[SEGMENT]"
+                      name="SEGMENT" />
+                    <outputColumn
+                      refId="Package\Load datawarehouse  dimensions from God Sales Data\Sales Data.Outputs[Sortie d'erreur de source OLE DB].Columns[MODELES]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Load datawarehouse  dimensions from God Sales Data\Sales Data.Outputs[Sortie d'erreur de source OLE DB].Columns[MODELES]"
+                      name="MODELES" />
+                    <outputColumn
+                      refId="Package\Load datawarehouse  dimensions from God Sales Data\Sales Data.Outputs[Sortie d'erreur de source OLE DB].Columns[CODE]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Load datawarehouse  dimensions from God Sales Data\Sales Data.Outputs[Sortie d'erreur de source OLE DB].Columns[CODE]"
+                      name="CODE" />
+                    <outputColumn
+                      refId="Package\Load datawarehouse  dimensions from God Sales Data\Sales Data.Outputs[Sortie d'erreur de source OLE DB].Columns[QUANTITE VENDUE]"
+                      dataType="i4"
+                      lineageId="Package\Load datawarehouse  dimensions from God Sales Data\Sales Data.Outputs[Sortie d'erreur de source OLE DB].Columns[QUANTITE VENDUE]"
+                      name="QUANTITE VENDUE" />
+                    <outputColumn
+                      refId="Package\Load datawarehouse  dimensions from God Sales Data\Sales Data.Outputs[Sortie d'erreur de source OLE DB].Columns[PRIX D'ACHAT]"
+                      dataType="i4"
+                      lineageId="Package\Load datawarehouse  dimensions from God Sales Data\Sales Data.Outputs[Sortie d'erreur de source OLE DB].Columns[PRIX D'ACHAT]"
+                      name="PRIX D'ACHAT" />
+                    <outputColumn
+                      refId="Package\Load datawarehouse  dimensions from God Sales Data\Sales Data.Outputs[Sortie d'erreur de source OLE DB].Columns[PRIX DE VENTE]"
+                      dataType="i4"
+                      lineageId="Package\Load datawarehouse  dimensions from God Sales Data\Sales Data.Outputs[Sortie d'erreur de source OLE DB].Columns[PRIX DE VENTE]"
+                      name="PRIX DE VENTE" />
+                    <outputColumn
+                      refId="Package\Load datawarehouse  dimensions from God Sales Data\Sales Data.Outputs[Sortie d'erreur de source OLE DB].Columns[SOURCE D'APPRO]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Load datawarehouse  dimensions from God Sales Data\Sales Data.Outputs[Sortie d'erreur de source OLE DB].Columns[SOURCE D'APPRO]"
+                      name="SOURCE D'APPRO" />
+                    <outputColumn
+                      refId="Package\Load datawarehouse  dimensions from God Sales Data\Sales Data.Outputs[Sortie d'erreur de source OLE DB].Columns[STOCK DISPONIBLE]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Load datawarehouse  dimensions from God Sales Data\Sales Data.Outputs[Sortie d'erreur de source OLE DB].Columns[STOCK DISPONIBLE]"
+                      name="STOCK DISPONIBLE" />
+                    <outputColumn
+                      refId="Package\Load datawarehouse  dimensions from God Sales Data\Sales Data.Outputs[Sortie d'erreur de source OLE DB].Columns[COMMANDE]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Load datawarehouse  dimensions from God Sales Data\Sales Data.Outputs[Sortie d'erreur de source OLE DB].Columns[COMMANDE]"
+                      name="COMMANDE" />
+                    <outputColumn
+                      refId="Package\Load datawarehouse  dimensions from God Sales Data\Sales Data.Outputs[Sortie d'erreur de source OLE DB].Columns[Port]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Load datawarehouse  dimensions from God Sales Data\Sales Data.Outputs[Sortie d'erreur de source OLE DB].Columns[Port]"
+                      name="Port" />
+                    <outputColumn
+                      refId="Package\Load datawarehouse  dimensions from God Sales Data\Sales Data.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load datawarehouse  dimensions from God Sales Data\Sales Data.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load datawarehouse  dimensions from God Sales Data\Sales Data.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load datawarehouse  dimensions from God Sales Data\Sales Data.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load datawarehouse  dimensions from God Sales Data\Sales Zone"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="Source OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;7"
+              description="Source OLE DB"
+              name="Sales Zone"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[mydb].[zone]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.String"
+                  description="Variable contenant la commande SQL à exécuter."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="Mappages entre les paramètres de la commande SQL et les variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load datawarehouse  dimensions from God Sales Data\Sales Zone.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-MO13FAB\SQLEXPRESS.Services-db2]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-MO13FAB\SQLEXPRESS.Services-db2]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Load datawarehouse  dimensions from God Sales Data\Sales Zone.Outputs[Sortie de source OLE DB]"
+                  name="Sortie de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load datawarehouse  dimensions from God Sales Data\Sales Zone.Outputs[Sortie de source OLE DB].Columns[idZONE]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load datawarehouse  dimensions from God Sales Data\Sales Zone.Outputs[Sortie de source OLE DB].ExternalColumns[idZONE]"
+                      lineageId="Package\Load datawarehouse  dimensions from God Sales Data\Sales Zone.Outputs[Sortie de source OLE DB].Columns[idZONE]"
+                      name="idZONE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load datawarehouse  dimensions from God Sales Data\Sales Zone.Outputs[Sortie de source OLE DB].Columns[ZONE]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load datawarehouse  dimensions from God Sales Data\Sales Zone.Outputs[Sortie de source OLE DB].ExternalColumns[ZONE]"
+                      length="45"
+                      lineageId="Package\Load datawarehouse  dimensions from God Sales Data\Sales Zone.Outputs[Sortie de source OLE DB].Columns[ZONE]"
+                      name="ZONE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load datawarehouse  dimensions from God Sales Data\Sales Zone.Outputs[Sortie de source OLE DB].Columns[DELIMITATION_GEO]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load datawarehouse  dimensions from God Sales Data\Sales Zone.Outputs[Sortie de source OLE DB].ExternalColumns[DELIMITATION_GEO]"
+                      length="45"
+                      lineageId="Package\Load datawarehouse  dimensions from God Sales Data\Sales Zone.Outputs[Sortie de source OLE DB].Columns[DELIMITATION_GEO]"
+                      name="DELIMITATION_GEO"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Load datawarehouse  dimensions from God Sales Data\Sales Zone.Outputs[Sortie de source OLE DB].ExternalColumns[idZONE]"
+                      dataType="i4"
+                      name="idZONE" />
+                    <externalMetadataColumn
+                      refId="Package\Load datawarehouse  dimensions from God Sales Data\Sales Zone.Outputs[Sortie de source OLE DB].ExternalColumns[ZONE]"
+                      dataType="wstr"
+                      length="45"
+                      name="ZONE" />
+                    <externalMetadataColumn
+                      refId="Package\Load datawarehouse  dimensions from God Sales Data\Sales Zone.Outputs[Sortie de source OLE DB].ExternalColumns[DELIMITATION_GEO]"
+                      dataType="wstr"
+                      length="45"
+                      name="DELIMITATION_GEO" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Load datawarehouse  dimensions from God Sales Data\Sales Zone.Outputs[Sortie d'erreur de source OLE DB]"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load datawarehouse  dimensions from God Sales Data\Sales Zone.Outputs[Sortie d'erreur de source OLE DB].Columns[idZONE]"
+                      dataType="i4"
+                      lineageId="Package\Load datawarehouse  dimensions from God Sales Data\Sales Zone.Outputs[Sortie d'erreur de source OLE DB].Columns[idZONE]"
+                      name="idZONE" />
+                    <outputColumn
+                      refId="Package\Load datawarehouse  dimensions from God Sales Data\Sales Zone.Outputs[Sortie d'erreur de source OLE DB].Columns[ZONE]"
+                      dataType="wstr"
+                      length="45"
+                      lineageId="Package\Load datawarehouse  dimensions from God Sales Data\Sales Zone.Outputs[Sortie d'erreur de source OLE DB].Columns[ZONE]"
+                      name="ZONE" />
+                    <outputColumn
+                      refId="Package\Load datawarehouse  dimensions from God Sales Data\Sales Zone.Outputs[Sortie d'erreur de source OLE DB].Columns[DELIMITATION_GEO]"
+                      dataType="wstr"
+                      length="45"
+                      lineageId="Package\Load datawarehouse  dimensions from God Sales Data\Sales Zone.Outputs[Sortie d'erreur de source OLE DB].Columns[DELIMITATION_GEO]"
+                      name="DELIMITATION_GEO" />
+                    <outputColumn
+                      refId="Package\Load datawarehouse  dimensions from God Sales Data\Sales Zone.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load datawarehouse  dimensions from God Sales Data\Sales Zone.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load datawarehouse  dimensions from God Sales Data\Sales Zone.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load datawarehouse  dimensions from God Sales Data\Sales Zone.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load datawarehouse  dimensions from God Sales Data\seach commercial"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Recherche;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;6"
+              description="Joint des colonnes supplémentaires au flux de données en recherchant des valeurs dans une table. Par exemple, joignez la colonne 'id employé' à la table des employés afin d'obtenir la 'date d'embauche' et le 'nom de l'employé'. Nous recommandons cette transformation lorsque la table de recherche peut être stockée en mémoire."
+              name="seach commercial"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Spécifie l'instruction SQL qui génère la table de correspondance."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from [mydb].[commercial]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie une instruction SQL qui utilise des paramètres pour générer la table de correspondance."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from (select * from [mydb].[commercial]) [refTable]
+where [refTable].[COMMERCIAL] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le type de connexion utilisé pour accéder au dataset de référence."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le type de cache de la table de correspondance."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie comment la transformation de recherche gère les lignes sans entrées correspondantes dans le jeu de données de référence."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le pourcentage du cache alloué aux lignes sans entrées correspondantes dans le dataset de référence."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Utilisation maximale de la mémoire pour le cache de référence sur une plateforme 32 bits."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Utilisation maximale de la mémoire pour le cache de référence sur une plateforme 64 bits."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indique si les métadonnées sont à référencer en format XML."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="idCOMMERCIAL" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="CODECOMMERCIAL" dataType="DT_WSTR" length="45" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="COMMERCIAL" dataType="DT_WSTR" length="250" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="CNI" dataType="DT_WSTR" length="45" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="DATE_DE_NAISS" dataType="DT_WSTR" length="45" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="ADRESS" dataType="DT_WSTR" length="45" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="zone_idZONE" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Spécifie la liste d'identificateurs de lignage se mappant aux paramètres utilisés dans la propriété SQLCommand par l'instruction SQL. Les entrées dans la liste sont séparées par des points-virgules."
+                  name="ParameterMap">#{Package\Load datawarehouse  dimensions from God Sales Data\Final Tri Zone for Commercial.Outputs[Sortie de jointure de fusion].Columns[Commercial]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Détermine si les clés dupliquées dans les données de référence doivent être traitées en tant qu'erreurs lorsque le mode Cache complet est utilisé."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load datawarehouse  dimensions from God Sales Data\seach commercial.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-MO13FAB\SQLEXPRESS.Services-db2]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-MO13FAB\SQLEXPRESS.Services-db2]"
+                  description="Gestionnaire de connexions utilisé pour accéder aux données de correspondance."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Load datawarehouse  dimensions from God Sales Data\seach commercial.Inputs[Entrée de recherche]"
+                  name="Entrée de recherche">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load datawarehouse  dimensions from God Sales Data\seach commercial.Inputs[Entrée de recherche].Columns[Commercial]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Commercial"
+                      lineageId="Package\Load datawarehouse  dimensions from God Sales Data\Final Tri Zone for Commercial.Outputs[Sortie de jointure de fusion].Columns[Commercial]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Spécifie la colonne de la table de référence sur laquelle une colonne se lie."
+                          name="JoinToReferenceColumn">COMMERCIAL</property>
+                        <property
+                          dataType="System.Null"
+                          description="Spécifie la colonne de la table de référence à partir de laquelle une colonne est copiée."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load datawarehouse  dimensions from God Sales Data\seach commercial.Outputs[Sortie de recherche avec correspondance]"
+                  errorOrTruncationOperation="Recherche"
+                  errorRowDisposition="RedirectRow"
+                  exclusionGroup="1"
+                  name="Sortie de recherche avec correspondance"
+                  synchronousInputId="Package\Load datawarehouse  dimensions from God Sales Data\seach commercial.Inputs[Entrée de recherche]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Load datawarehouse  dimensions from God Sales Data\seach commercial.Outputs[Sortie de recherche sans correspondance]"
+                  description="Sortie de recherche gérant les lignes sans entrées correspondantes dans le dataset de référence. Utilisez cette sortie lorsque la propriété NoMatchBehavior a la valeur « Envoyez les lignes sans entrées correspondantes dans la sortie sans correspondance »."
+                  exclusionGroup="1"
+                  name="Sortie de recherche sans correspondance"
+                  synchronousInputId="Package\Load datawarehouse  dimensions from God Sales Data\seach commercial.Inputs[Entrée de recherche]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Load datawarehouse  dimensions from God Sales Data\seach commercial.Outputs[Sortie d'erreur de recherche]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de recherche"
+                  synchronousInputId="Package\Load datawarehouse  dimensions from God Sales Data\seach commercial.Inputs[Entrée de recherche]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load datawarehouse  dimensions from God Sales Data\seach commercial.Outputs[Sortie d'erreur de recherche].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load datawarehouse  dimensions from God Sales Data\seach commercial.Outputs[Sortie d'erreur de recherche].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load datawarehouse  dimensions from God Sales Data\seach commercial.Outputs[Sortie d'erreur de recherche].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load datawarehouse  dimensions from God Sales Data\seach commercial.Outputs[Sortie d'erreur de recherche].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load datawarehouse  dimensions from God Sales Data\Tri_com"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Trier;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;1"
+              description="Trie les données d'entrée en ordre croissant ou décroissant lorsque le tri ne peut pas être effectué à la source. Par exemple, triez les données de vente par 'id de client' avant leur enregistrement dans un fichier plat et leur diffusion dans un autre service. Remarque : nous ne recommandons pas cette transformation dans le cas de flux de données volumineux."
+              name="Tri_com"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si la transformation de tri supprime les lignes comportant des valeurs de tri en double."
+                  name="EliminateDuplicates">true</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le nombre maximal de threads à utiliser pour le tri."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Load datawarehouse  dimensions from God Sales Data\Tri_com.Inputs[Entrée de tri]"
+                  name="Entrée de tri">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load datawarehouse  dimensions from God Sales Data\Tri_com.Inputs[Entrée de tri].Columns[SALESID]"
+                      cachedDataType="r8"
+                      cachedName="SALESID"
+                      lineageId="Package\Load datawarehouse  dimensions from God Sales Data\Sales Data.Outputs[Sortie de source OLE DB].Columns[SALESID]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load datawarehouse  dimensions from God Sales Data\Tri_com.Inputs[Entrée de tri].Columns[YEAR]"
+                      cachedDataType="r8"
+                      cachedName="YEAR"
+                      lineageId="Package\Load datawarehouse  dimensions from God Sales Data\Sales Data.Outputs[Sortie de source OLE DB].Columns[YEAR]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load datawarehouse  dimensions from God Sales Data\Tri_com.Inputs[Entrée de tri].Columns[Month]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Month"
+                      lineageId="Package\Load datawarehouse  dimensions from God Sales Data\Sales Data.Outputs[Sortie de source OLE DB].Columns[Month]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load datawarehouse  dimensions from God Sales Data\Tri_com.Inputs[Entrée de tri].Columns[WEEK]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="WEEK"
+                      lineageId="Package\Load datawarehouse  dimensions from God Sales Data\Sales Data.Outputs[Sortie de source OLE DB].Columns[WEEK]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load datawarehouse  dimensions from God Sales Data\Tri_com.Inputs[Entrée de tri].Columns[N° POS]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="N° POS"
+                      lineageId="Package\Load datawarehouse  dimensions from God Sales Data\Sales Data.Outputs[Sortie de source OLE DB].Columns[N° POS]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load datawarehouse  dimensions from God Sales Data\Tri_com.Inputs[Entrée de tri].Columns[POS NAME]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="POS NAME"
+                      lineageId="Package\Load datawarehouse  dimensions from God Sales Data\Sales Data.Outputs[Sortie de source OLE DB].Columns[POS NAME]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load datawarehouse  dimensions from God Sales Data\Tri_com.Inputs[Entrée de tri].Columns[CLASS]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="CLASS"
+                      lineageId="Package\Load datawarehouse  dimensions from God Sales Data\Sales Data.Outputs[Sortie de source OLE DB].Columns[CLASS]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load datawarehouse  dimensions from God Sales Data\Tri_com.Inputs[Entrée de tri].Columns[Commercial]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Commercial"
+                      lineageId="Package\Load datawarehouse  dimensions from God Sales Data\Sales Data.Outputs[Sortie de source OLE DB].Columns[Commercial]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load datawarehouse  dimensions from God Sales Data\Tri_com.Inputs[Entrée de tri].Columns[ADRESS]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="ADRESS"
+                      lineageId="Package\Load datawarehouse  dimensions from God Sales Data\Sales Data.Outputs[Sortie de source OLE DB].Columns[ADRESS]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load datawarehouse  dimensions from God Sales Data\Tri_com.Inputs[Entrée de tri].Columns[MARQUE]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="MARQUE"
+                      lineageId="Package\Load datawarehouse  dimensions from God Sales Data\Sales Data.Outputs[Sortie de source OLE DB].Columns[MARQUE]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load datawarehouse  dimensions from God Sales Data\Tri_com.Inputs[Entrée de tri].Columns[SEGMENT]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="SEGMENT"
+                      lineageId="Package\Load datawarehouse  dimensions from God Sales Data\Sales Data.Outputs[Sortie de source OLE DB].Columns[SEGMENT]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load datawarehouse  dimensions from God Sales Data\Tri_com.Inputs[Entrée de tri].Columns[MODELES]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="MODELES"
+                      lineageId="Package\Load datawarehouse  dimensions from God Sales Data\Sales Data.Outputs[Sortie de source OLE DB].Columns[MODELES]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load datawarehouse  dimensions from God Sales Data\Tri_com.Inputs[Entrée de tri].Columns[CODE]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="CODE"
+                      lineageId="Package\Load datawarehouse  dimensions from God Sales Data\Sales Data.Outputs[Sortie de source OLE DB].Columns[CODE]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load datawarehouse  dimensions from God Sales Data\Tri_com.Inputs[Entrée de tri].Columns[QUANTITE VENDUE]"
+                      cachedDataType="i4"
+                      cachedName="QUANTITE VENDUE"
+                      lineageId="Package\Load datawarehouse  dimensions from God Sales Data\Sales Data.Outputs[Sortie de source OLE DB].Columns[QUANTITE VENDUE]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load datawarehouse  dimensions from God Sales Data\Tri_com.Inputs[Entrée de tri].Columns[PRIX D'ACHAT]"
+                      cachedDataType="i4"
+                      cachedName="PRIX D'ACHAT"
+                      lineageId="Package\Load datawarehouse  dimensions from God Sales Data\Sales Data.Outputs[Sortie de source OLE DB].Columns[PRIX D'ACHAT]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load datawarehouse  dimensions from God Sales Data\Tri_com.Inputs[Entrée de tri].Columns[PRIX DE VENTE]"
+                      cachedDataType="i4"
+                      cachedName="PRIX DE VENTE"
+                      lineageId="Package\Load datawarehouse  dimensions from God Sales Data\Sales Data.Outputs[Sortie de source OLE DB].Columns[PRIX DE VENTE]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load datawarehouse  dimensions from God Sales Data\Tri_com.Inputs[Entrée de tri].Columns[SOURCE D'APPRO]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="SOURCE D'APPRO"
+                      lineageId="Package\Load datawarehouse  dimensions from God Sales Data\Sales Data.Outputs[Sortie de source OLE DB].Columns[SOURCE D'APPRO]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load datawarehouse  dimensions from God Sales Data\Tri_com.Inputs[Entrée de tri].Columns[STOCK DISPONIBLE]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="STOCK DISPONIBLE"
+                      lineageId="Package\Load datawarehouse  dimensions from God Sales Data\Sales Data.Outputs[Sortie de source OLE DB].Columns[STOCK DISPONIBLE]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load datawarehouse  dimensions from God Sales Data\Tri_com.Inputs[Entrée de tri].Columns[COMMANDE]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="COMMANDE"
+                      lineageId="Package\Load datawarehouse  dimensions from God Sales Data\Sales Data.Outputs[Sortie de source OLE DB].Columns[COMMANDE]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load datawarehouse  dimensions from God Sales Data\Tri_com.Outputs[Sortie de tri]"
+                  isSorted="true"
+                  name="Sortie de tri">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load datawarehouse  dimensions from God Sales Data\Tri_com.Outputs[Sortie de tri].Columns[SALESID]"
+                      dataType="r8"
+                      lineageId="Package\Load datawarehouse  dimensions from God Sales Data\Tri_com.Outputs[Sortie de tri].Columns[SALESID]"
+                      name="SALESID">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de lignage de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\Load datawarehouse  dimensions from God Sales Data\Sales Data.Outputs[Sortie de source OLE DB].Columns[SALESID]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load datawarehouse  dimensions from God Sales Data\Tri_com.Outputs[Sortie de tri].Columns[YEAR]"
+                      dataType="r8"
+                      lineageId="Package\Load datawarehouse  dimensions from God Sales Data\Tri_com.Outputs[Sortie de tri].Columns[YEAR]"
+                      name="YEAR">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de lignage de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\Load datawarehouse  dimensions from God Sales Data\Sales Data.Outputs[Sortie de source OLE DB].Columns[YEAR]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load datawarehouse  dimensions from God Sales Data\Tri_com.Outputs[Sortie de tri].Columns[Month]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Load datawarehouse  dimensions from God Sales Data\Tri_com.Outputs[Sortie de tri].Columns[Month]"
+                      name="Month">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de lignage de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\Load datawarehouse  dimensions from God Sales Data\Sales Data.Outputs[Sortie de source OLE DB].Columns[Month]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load datawarehouse  dimensions from God Sales Data\Tri_com.Outputs[Sortie de tri].Columns[WEEK]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Load datawarehouse  dimensions from God Sales Data\Tri_com.Outputs[Sortie de tri].Columns[WEEK]"
+                      name="WEEK">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de lignage de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\Load datawarehouse  dimensions from God Sales Data\Sales Data.Outputs[Sortie de source OLE DB].Columns[WEEK]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load datawarehouse  dimensions from God Sales Data\Tri_com.Outputs[Sortie de tri].Columns[N° POS]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Load datawarehouse  dimensions from God Sales Data\Tri_com.Outputs[Sortie de tri].Columns[N° POS]"
+                      name="N° POS">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de lignage de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\Load datawarehouse  dimensions from God Sales Data\Sales Data.Outputs[Sortie de source OLE DB].Columns[N° POS]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load datawarehouse  dimensions from God Sales Data\Tri_com.Outputs[Sortie de tri].Columns[POS NAME]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Load datawarehouse  dimensions from God Sales Data\Tri_com.Outputs[Sortie de tri].Columns[POS NAME]"
+                      name="POS NAME">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de lignage de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\Load datawarehouse  dimensions from God Sales Data\Sales Data.Outputs[Sortie de source OLE DB].Columns[POS NAME]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load datawarehouse  dimensions from God Sales Data\Tri_com.Outputs[Sortie de tri].Columns[CLASS]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Load datawarehouse  dimensions from God Sales Data\Tri_com.Outputs[Sortie de tri].Columns[CLASS]"
+                      name="CLASS">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de lignage de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\Load datawarehouse  dimensions from God Sales Data\Sales Data.Outputs[Sortie de source OLE DB].Columns[CLASS]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load datawarehouse  dimensions from God Sales Data\Tri_com.Outputs[Sortie de tri].Columns[Commercial]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Load datawarehouse  dimensions from God Sales Data\Tri_com.Outputs[Sortie de tri].Columns[Commercial]"
+                      name="Commercial"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de lignage de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\Load datawarehouse  dimensions from God Sales Data\Sales Data.Outputs[Sortie de source OLE DB].Columns[Commercial]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load datawarehouse  dimensions from God Sales Data\Tri_com.Outputs[Sortie de tri].Columns[ADRESS]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Load datawarehouse  dimensions from God Sales Data\Tri_com.Outputs[Sortie de tri].Columns[ADRESS]"
+                      name="ADRESS">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de lignage de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\Load datawarehouse  dimensions from God Sales Data\Sales Data.Outputs[Sortie de source OLE DB].Columns[ADRESS]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load datawarehouse  dimensions from God Sales Data\Tri_com.Outputs[Sortie de tri].Columns[MARQUE]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Load datawarehouse  dimensions from God Sales Data\Tri_com.Outputs[Sortie de tri].Columns[MARQUE]"
+                      name="MARQUE">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de lignage de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\Load datawarehouse  dimensions from God Sales Data\Sales Data.Outputs[Sortie de source OLE DB].Columns[MARQUE]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load datawarehouse  dimensions from God Sales Data\Tri_com.Outputs[Sortie de tri].Columns[SEGMENT]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Load datawarehouse  dimensions from God Sales Data\Tri_com.Outputs[Sortie de tri].Columns[SEGMENT]"
+                      name="SEGMENT">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de lignage de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\Load datawarehouse  dimensions from God Sales Data\Sales Data.Outputs[Sortie de source OLE DB].Columns[SEGMENT]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load datawarehouse  dimensions from God Sales Data\Tri_com.Outputs[Sortie de tri].Columns[MODELES]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Load datawarehouse  dimensions from God Sales Data\Tri_com.Outputs[Sortie de tri].Columns[MODELES]"
+                      name="MODELES">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de lignage de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\Load datawarehouse  dimensions from God Sales Data\Sales Data.Outputs[Sortie de source OLE DB].Columns[MODELES]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load datawarehouse  dimensions from God Sales Data\Tri_com.Outputs[Sortie de tri].Columns[CODE]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Load datawarehouse  dimensions from God Sales Data\Tri_com.Outputs[Sortie de tri].Columns[CODE]"
+                      name="CODE">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de lignage de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\Load datawarehouse  dimensions from God Sales Data\Sales Data.Outputs[Sortie de source OLE DB].Columns[CODE]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load datawarehouse  dimensions from God Sales Data\Tri_com.Outputs[Sortie de tri].Columns[QUANTITE VENDUE]"
+                      dataType="i4"
+                      lineageId="Package\Load datawarehouse  dimensions from God Sales Data\Tri_com.Outputs[Sortie de tri].Columns[QUANTITE VENDUE]"
+                      name="QUANTITE VENDUE">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de lignage de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\Load datawarehouse  dimensions from God Sales Data\Sales Data.Outputs[Sortie de source OLE DB].Columns[QUANTITE VENDUE]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load datawarehouse  dimensions from God Sales Data\Tri_com.Outputs[Sortie de tri].Columns[PRIX D'ACHAT]"
+                      dataType="i4"
+                      lineageId="Package\Load datawarehouse  dimensions from God Sales Data\Tri_com.Outputs[Sortie de tri].Columns[PRIX D'ACHAT]"
+                      name="PRIX D'ACHAT">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de lignage de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\Load datawarehouse  dimensions from God Sales Data\Sales Data.Outputs[Sortie de source OLE DB].Columns[PRIX D'ACHAT]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load datawarehouse  dimensions from God Sales Data\Tri_com.Outputs[Sortie de tri].Columns[PRIX DE VENTE]"
+                      dataType="i4"
+                      lineageId="Package\Load datawarehouse  dimensions from God Sales Data\Tri_com.Outputs[Sortie de tri].Columns[PRIX DE VENTE]"
+                      name="PRIX DE VENTE">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de lignage de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\Load datawarehouse  dimensions from God Sales Data\Sales Data.Outputs[Sortie de source OLE DB].Columns[PRIX DE VENTE]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load datawarehouse  dimensions from God Sales Data\Tri_com.Outputs[Sortie de tri].Columns[SOURCE D'APPRO]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Load datawarehouse  dimensions from God Sales Data\Tri_com.Outputs[Sortie de tri].Columns[SOURCE D'APPRO]"
+                      name="SOURCE D'APPRO">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de lignage de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\Load datawarehouse  dimensions from God Sales Data\Sales Data.Outputs[Sortie de source OLE DB].Columns[SOURCE D'APPRO]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load datawarehouse  dimensions from God Sales Data\Tri_com.Outputs[Sortie de tri].Columns[STOCK DISPONIBLE]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Load datawarehouse  dimensions from God Sales Data\Tri_com.Outputs[Sortie de tri].Columns[STOCK DISPONIBLE]"
+                      name="STOCK DISPONIBLE">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de lignage de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\Load datawarehouse  dimensions from God Sales Data\Sales Data.Outputs[Sortie de source OLE DB].Columns[STOCK DISPONIBLE]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load datawarehouse  dimensions from God Sales Data\Tri_com.Outputs[Sortie de tri].Columns[COMMANDE]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Load datawarehouse  dimensions from God Sales Data\Tri_com.Outputs[Sortie de tri].Columns[COMMANDE]"
+                      name="COMMANDE">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de lignage de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\Load datawarehouse  dimensions from God Sales Data\Sales Data.Outputs[Sortie de source OLE DB].Columns[COMMANDE]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load datawarehouse  dimensions from God Sales Data\Tri_result"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Trier;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;1"
+              description="Trie les données d'entrée en ordre croissant ou décroissant lorsque le tri ne peut pas être effectué à la source. Par exemple, triez les données de vente par 'id de client' avant leur enregistrement dans un fichier plat et leur diffusion dans un autre service. Remarque : nous ne recommandons pas cette transformation dans le cas de flux de données volumineux."
+              name="Tri_result"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si la transformation de tri supprime les lignes comportant des valeurs de tri en double."
+                  name="EliminateDuplicates">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le nombre maximal de threads à utiliser pour le tri."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Load datawarehouse  dimensions from God Sales Data\Tri_result.Inputs[Entrée de tri]"
+                  name="Entrée de tri">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load datawarehouse  dimensions from God Sales Data\Tri_result.Inputs[Entrée de tri].Columns[Zone]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Zone"
+                      lineageId="Package\Load datawarehouse  dimensions from God Sales Data\Jointure zone and commerical.Outputs[Sortie de jointure de fusion].Columns[Zone]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load datawarehouse  dimensions from God Sales Data\Tri_result.Inputs[Entrée de tri].Columns[Commercial]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Commercial"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\Load datawarehouse  dimensions from God Sales Data\Jointure zone and commerical.Outputs[Sortie de jointure de fusion].Columns[Commercial]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">2</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load datawarehouse  dimensions from God Sales Data\Tri_result.Outputs[Sortie de tri]"
+                  isSorted="true"
+                  name="Sortie de tri">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load datawarehouse  dimensions from God Sales Data\Tri_result.Outputs[Sortie de tri].Columns[ZONE]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Load datawarehouse  dimensions from God Sales Data\Tri_result.Outputs[Sortie de tri].Columns[ZONE]"
+                      name="ZONE"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de lignage de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\Load datawarehouse  dimensions from God Sales Data\Jointure zone and commerical.Outputs[Sortie de jointure de fusion].Columns[Zone]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load datawarehouse  dimensions from God Sales Data\Tri_result.Outputs[Sortie de tri].Columns[Commercial]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Load datawarehouse  dimensions from God Sales Data\Tri_result.Outputs[Sortie de tri].Columns[Commercial]"
+                      name="Commercial"
+                      sortKeyPosition="2">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de lignage de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\Load datawarehouse  dimensions from God Sales Data\Jointure zone and commerical.Outputs[Sortie de jointure de fusion].Columns[Commercial]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load datawarehouse  dimensions from God Sales Data\Tri_zone"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Trier;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;1"
+              description="Trie les données d'entrée en ordre croissant ou décroissant lorsque le tri ne peut pas être effectué à la source. Par exemple, triez les données de vente par 'id de client' avant leur enregistrement dans un fichier plat et leur diffusion dans un autre service. Remarque : nous ne recommandons pas cette transformation dans le cas de flux de données volumineux."
+              name="Tri_zone"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si la transformation de tri supprime les lignes comportant des valeurs de tri en double."
+                  name="EliminateDuplicates">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le nombre maximal de threads à utiliser pour le tri."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Load datawarehouse  dimensions from God Sales Data\Tri_zone.Inputs[Entrée de tri]"
+                  name="Entrée de tri">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load datawarehouse  dimensions from God Sales Data\Tri_zone.Inputs[Entrée de tri].Columns[idZONE]"
+                      cachedDataType="i4"
+                      cachedName="idZONE"
+                      lineageId="Package\Load datawarehouse  dimensions from God Sales Data\Sales Zone.Outputs[Sortie de source OLE DB].Columns[idZONE]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load datawarehouse  dimensions from God Sales Data\Tri_zone.Inputs[Entrée de tri].Columns[ZONE]"
+                      cachedDataType="wstr"
+                      cachedLength="45"
+                      cachedName="ZONE"
+                      lineageId="Package\Load datawarehouse  dimensions from God Sales Data\Sales Zone.Outputs[Sortie de source OLE DB].Columns[ZONE]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load datawarehouse  dimensions from God Sales Data\Tri_zone.Inputs[Entrée de tri].Columns[DELIMITATION_GEO]"
+                      cachedDataType="wstr"
+                      cachedLength="45"
+                      cachedName="DELIMITATION_GEO"
+                      lineageId="Package\Load datawarehouse  dimensions from God Sales Data\Sales Zone.Outputs[Sortie de source OLE DB].Columns[DELIMITATION_GEO]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">3</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load datawarehouse  dimensions from God Sales Data\Tri_zone.Outputs[Sortie de tri]"
+                  isSorted="true"
+                  name="Sortie de tri">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load datawarehouse  dimensions from God Sales Data\Tri_zone.Outputs[Sortie de tri].Columns[idZONE]"
+                      dataType="i4"
+                      lineageId="Package\Load datawarehouse  dimensions from God Sales Data\Tri_zone.Outputs[Sortie de tri].Columns[idZONE]"
+                      name="idZONE"
+                      sortKeyPosition="2">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de lignage de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\Load datawarehouse  dimensions from God Sales Data\Sales Zone.Outputs[Sortie de source OLE DB].Columns[idZONE]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load datawarehouse  dimensions from God Sales Data\Tri_zone.Outputs[Sortie de tri].Columns[ZONE]"
+                      dataType="wstr"
+                      length="45"
+                      lineageId="Package\Load datawarehouse  dimensions from God Sales Data\Tri_zone.Outputs[Sortie de tri].Columns[ZONE]"
+                      name="ZONE"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de lignage de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\Load datawarehouse  dimensions from God Sales Data\Sales Zone.Outputs[Sortie de source OLE DB].Columns[ZONE]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load datawarehouse  dimensions from God Sales Data\Tri_zone.Outputs[Sortie de tri].Columns[DELIMITATION_GEO]"
+                      dataType="wstr"
+                      length="45"
+                      lineageId="Package\Load datawarehouse  dimensions from God Sales Data\Tri_zone.Outputs[Sortie de tri].Columns[DELIMITATION_GEO]"
+                      name="DELIMITATION_GEO"
+                      sortKeyPosition="3">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de lignage de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\Load datawarehouse  dimensions from God Sales Data\Sales Zone.Outputs[Sortie de source OLE DB].Columns[DELIMITATION_GEO]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load datawarehouse  dimensions from God Sales Data\Tri_zone_com"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Trier;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;1"
+              description="Trie les données d'entrée en ordre croissant ou décroissant lorsque le tri ne peut pas être effectué à la source. Par exemple, triez les données de vente par 'id de client' avant leur enregistrement dans un fichier plat et leur diffusion dans un autre service. Remarque : nous ne recommandons pas cette transformation dans le cas de flux de données volumineux."
+              name="Tri_zone_com"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si la transformation de tri supprime les lignes comportant des valeurs de tri en double."
+                  name="EliminateDuplicates">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le nombre maximal de threads à utiliser pour le tri."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Load datawarehouse  dimensions from God Sales Data\Tri_zone_com.Inputs[Entrée de tri]"
+                  name="Entrée de tri">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load datawarehouse  dimensions from God Sales Data\Tri_zone_com.Inputs[Entrée de tri].Columns[Commercial]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Commercial"
+                      lineageId="Package\Load datawarehouse  dimensions from God Sales Data\Zone_com.Outputs[Sortie de source OLE DB].Columns[Commercial]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load datawarehouse  dimensions from God Sales Data\Tri_zone_com.Inputs[Entrée de tri].Columns[Zone]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Zone"
+                      lineageId="Package\Load datawarehouse  dimensions from God Sales Data\Zone_com.Outputs[Sortie de source OLE DB].Columns[Zone]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">2</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load datawarehouse  dimensions from God Sales Data\Tri_zone_com.Outputs[Sortie de tri]"
+                  isSorted="true"
+                  name="Sortie de tri">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load datawarehouse  dimensions from God Sales Data\Tri_zone_com.Outputs[Sortie de tri].Columns[Commercial]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Load datawarehouse  dimensions from God Sales Data\Tri_zone_com.Outputs[Sortie de tri].Columns[Commercial]"
+                      name="Commercial"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de lignage de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\Load datawarehouse  dimensions from God Sales Data\Zone_com.Outputs[Sortie de source OLE DB].Columns[Commercial]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load datawarehouse  dimensions from God Sales Data\Tri_zone_com.Outputs[Sortie de tri].Columns[Zone]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Load datawarehouse  dimensions from God Sales Data\Tri_zone_com.Outputs[Sortie de tri].Columns[Zone]"
+                      name="Zone"
+                      sortKeyPosition="2">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de lignage de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\Load datawarehouse  dimensions from God Sales Data\Zone_com.Outputs[Sortie de source OLE DB].Columns[Zone]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load datawarehouse  dimensions from God Sales Data\Zone_com"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="Source OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;7"
+              description="Source OLE DB"
+              name="Zone_com"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[dbo].[Sales_Com_Zone]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.String"
+                  description="Variable contenant la commande SQL à exécuter."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="Mappages entre les paramètres de la commande SQL et les variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load datawarehouse  dimensions from God Sales Data\Zone_com.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-MO13FAB\SQLEXPRESS.Services-db2]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-MO13FAB\SQLEXPRESS.Services-db2]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Load datawarehouse  dimensions from God Sales Data\Zone_com.Outputs[Sortie de source OLE DB]"
+                  name="Sortie de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load datawarehouse  dimensions from God Sales Data\Zone_com.Outputs[Sortie de source OLE DB].Columns[Commercial]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load datawarehouse  dimensions from God Sales Data\Zone_com.Outputs[Sortie de source OLE DB].ExternalColumns[Commercial]"
+                      length="255"
+                      lineageId="Package\Load datawarehouse  dimensions from God Sales Data\Zone_com.Outputs[Sortie de source OLE DB].Columns[Commercial]"
+                      name="Commercial"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load datawarehouse  dimensions from God Sales Data\Zone_com.Outputs[Sortie de source OLE DB].Columns[Zone]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load datawarehouse  dimensions from God Sales Data\Zone_com.Outputs[Sortie de source OLE DB].ExternalColumns[Zone]"
+                      length="255"
+                      lineageId="Package\Load datawarehouse  dimensions from God Sales Data\Zone_com.Outputs[Sortie de source OLE DB].Columns[Zone]"
+                      name="Zone"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Load datawarehouse  dimensions from God Sales Data\Zone_com.Outputs[Sortie de source OLE DB].ExternalColumns[Commercial]"
+                      dataType="wstr"
+                      length="255"
+                      name="Commercial" />
+                    <externalMetadataColumn
+                      refId="Package\Load datawarehouse  dimensions from God Sales Data\Zone_com.Outputs[Sortie de source OLE DB].ExternalColumns[Zone]"
+                      dataType="wstr"
+                      length="255"
+                      name="Zone" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Load datawarehouse  dimensions from God Sales Data\Zone_com.Outputs[Sortie d'erreur de source OLE DB]"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load datawarehouse  dimensions from God Sales Data\Zone_com.Outputs[Sortie d'erreur de source OLE DB].Columns[Commercial]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Load datawarehouse  dimensions from God Sales Data\Zone_com.Outputs[Sortie d'erreur de source OLE DB].Columns[Commercial]"
+                      name="Commercial" />
+                    <outputColumn
+                      refId="Package\Load datawarehouse  dimensions from God Sales Data\Zone_com.Outputs[Sortie d'erreur de source OLE DB].Columns[Zone]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Load datawarehouse  dimensions from God Sales Data\Zone_com.Outputs[Sortie d'erreur de source OLE DB].Columns[Zone]"
+                      name="Zone" />
+                    <outputColumn
+                      refId="Package\Load datawarehouse  dimensions from God Sales Data\Zone_com.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load datawarehouse  dimensions from God Sales Data\Zone_com.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load datawarehouse  dimensions from God Sales Data\Zone_com.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load datawarehouse  dimensions from God Sales Data\Zone_com.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Load datawarehouse  dimensions from God Sales Data.Paths[Multidiffusion sortie 1]"
+              endId="Package\Load datawarehouse  dimensions from God Sales Data\Final Tri Zone for Commercial.Inputs[Entrée gauche de jointure de fusion]"
+              name="Multidiffusion sortie 1"
+              startId="Package\Load datawarehouse  dimensions from God Sales Data\multi_zone.Outputs[Multidiffusion sortie 1]" />
+            <path
+              refId="Package\Load datawarehouse  dimensions from God Sales Data.Paths[Sortie d'erreur de recherche]"
+              endId="Package\Load datawarehouse  dimensions from God Sales Data\Commercial.Inputs[Entrée de destination OLE DB]"
+              name="Sortie d'erreur de recherche"
+              startId="Package\Load datawarehouse  dimensions from God Sales Data\seach commercial.Outputs[Sortie d'erreur de recherche]" />
+            <path
+              refId="Package\Load datawarehouse  dimensions from God Sales Data.Paths[Sortie de jointure de fusion]"
+              endId="Package\Load datawarehouse  dimensions from God Sales Data\Tri_result.Inputs[Entrée de tri]"
+              name="Sortie de jointure de fusion"
+              startId="Package\Load datawarehouse  dimensions from God Sales Data\Jointure zone and commerical.Outputs[Sortie de jointure de fusion]" />
+            <path
+              refId="Package\Load datawarehouse  dimensions from God Sales Data.Paths[Sortie de jointure de fusion1]"
+              endId="Package\Load datawarehouse  dimensions from God Sales Data\seach commercial.Inputs[Entrée de recherche]"
+              name="Sortie de jointure de fusion"
+              startId="Package\Load datawarehouse  dimensions from God Sales Data\Final Tri Zone for Commercial.Outputs[Sortie de jointure de fusion]" />
+            <path
+              refId="Package\Load datawarehouse  dimensions from God Sales Data.Paths[Sortie de multidiffusion 2]"
+              endId="Package\Load datawarehouse  dimensions from God Sales Data\Tri_com.Inputs[Entrée de tri]"
+              name="Sortie de multidiffusion 2"
+              startId="Package\Load datawarehouse  dimensions from God Sales Data\Multidiffusion.Outputs[Sortie de multidiffusion 2]" />
+            <path
+              refId="Package\Load datawarehouse  dimensions from God Sales Data.Paths[Sortie de source OLE DB]"
+              endId="Package\Load datawarehouse  dimensions from God Sales Data\Tri_zone_com.Inputs[Entrée de tri]"
+              name="Sortie de source OLE DB"
+              startId="Package\Load datawarehouse  dimensions from God Sales Data\Zone_com.Outputs[Sortie de source OLE DB]" />
+            <path
+              refId="Package\Load datawarehouse  dimensions from God Sales Data.Paths[Sortie de source OLE DB1]"
+              endId="Package\Load datawarehouse  dimensions from God Sales Data\Tri_zone.Inputs[Entrée de tri]"
+              name="Sortie de source OLE DB"
+              startId="Package\Load datawarehouse  dimensions from God Sales Data\Sales Zone.Outputs[Sortie de source OLE DB]" />
+            <path
+              refId="Package\Load datawarehouse  dimensions from God Sales Data.Paths[Sortie de source OLE DB2]"
+              endId="Package\Load datawarehouse  dimensions from God Sales Data\Multidiffusion.Inputs[Multidiffusion entrée 1]"
+              name="Sortie de source OLE DB"
+              startId="Package\Load datawarehouse  dimensions from God Sales Data\Sales Data.Outputs[Sortie de source OLE DB]" />
+            <path
+              refId="Package\Load datawarehouse  dimensions from God Sales Data.Paths[Sortie de tri]"
+              endId="Package\Load datawarehouse  dimensions from God Sales Data\Jointure zone and commerical.Inputs[Entrée droite de jointure de fusion]"
+              name="Sortie de tri"
+              startId="Package\Load datawarehouse  dimensions from God Sales Data\Tri_zone_com.Outputs[Sortie de tri]" />
+            <path
+              refId="Package\Load datawarehouse  dimensions from God Sales Data.Paths[Sortie de tri1]"
+              endId="Package\Load datawarehouse  dimensions from God Sales Data\Final Tri Zone for Commercial.Inputs[Entrée droite de jointure de fusion]"
+              name="Sortie de tri"
+              startId="Package\Load datawarehouse  dimensions from God Sales Data\Tri_result.Outputs[Sortie de tri]" />
+            <path
+              refId="Package\Load datawarehouse  dimensions from God Sales Data.Paths[Sortie de tri2]"
+              endId="Package\Load datawarehouse  dimensions from God Sales Data\Jointure zone and commerical.Inputs[Entrée gauche de jointure de fusion]"
+              name="Sortie de tri"
+              startId="Package\Load datawarehouse  dimensions from God Sales Data\Tri_com.Outputs[Sortie de tri]" />
+            <path
+              refId="Package\Load datawarehouse  dimensions from God Sales Data.Paths[Sortie de tri3]"
+              endId="Package\Load datawarehouse  dimensions from God Sales Data\multi_zone.Inputs[Multidiffusion entrée 1]"
+              name="Sortie de tri"
+              startId="Package\Load datawarehouse  dimensions from God Sales Data\Tri_zone.Outputs[Sortie de tri]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Cette section CDATA contient des informations sur la disposition du package. Elle comprend des informations telles que les coordonnées (x,y), la largeur et la hauteur.-->
+<!--Si vous modifiez manuellement cette section et commettez une erreur, vous pouvez la supprimer. -->
+<!--Le package pourra toujours se charger normalement, mais les informations de disposition précédente seront perdues et le concepteur réorganisera automatiquement les éléments sur l'aire de conception.-->
+<Objects
+  Version="8">
+  <!--Chaque nœud ci-dessous contiendra des propriétés qui n'affectent pas le comportement d'exécution.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="240,125"
+          Id="Package\Load datawarehouse  dimensions from God Sales Data"
+          TopLeft="507,180" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Load datawarehouse  dimensions from God Sales Data">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="150,42"
+          Id="Package\Load datawarehouse  dimensions from God Sales Data\Sales Zone"
+          TopLeft="36.194444444444,533.25" />
+        <NodeLayout
+          Size="170,42"
+          Id="Package\Load datawarehouse  dimensions from God Sales Data\Sales Data"
+          TopLeft="41.666666666667,4.083333333333" />
+        <NodeLayout
+          Size="151,42"
+          Id="Package\Load datawarehouse  dimensions from God Sales Data\Tri_zone_com"
+          TopLeft="232.444444444444,467.583333333333" />
+        <NodeLayout
+          Size="218,42"
+          Id="Package\Load datawarehouse  dimensions from God Sales Data\Final Tri Zone for Commercial"
+          TopLeft="287.722222222222,567.888888888889" />
+        <NodeLayout
+          Size="130,42"
+          Id="Package\Load datawarehouse  dimensions from God Sales Data\multi_zone"
+          TopLeft="330.996031746032,658.289682539683" />
+        <NodeLayout
+          Size="155,42"
+          Id="Package\Load datawarehouse  dimensions from God Sales Data\Multidiffusion"
+          TopLeft="382.861111111111,94.972222222222" />
+        <NodeLayout
+          Size="142,42"
+          Id="Package\Load datawarehouse  dimensions from God Sales Data\seach commercial"
+          TopLeft="575,567.75" />
+        <NodeLayout
+          Size="123,42"
+          Id="Package\Load datawarehouse  dimensions from God Sales Data\Tri_result"
+          TopLeft="741.75,472.13888888889" />
+        <NodeLayout
+          Size="158,42"
+          Id="Package\Load datawarehouse  dimensions from God Sales Data\Tri_zone"
+          TopLeft="30.6547619047622,663.309523809523" />
+        <NodeLayout
+          Size="220,42"
+          Id="Package\Load datawarehouse  dimensions from God Sales Data\Jointure zone and commerical"
+          TopLeft="401.25,355.749999999999" />
+        <NodeLayout
+          Size="151,42"
+          Id="Package\Load datawarehouse  dimensions from God Sales Data\Zone_com"
+          TopLeft="37.1666666666666,462.777777777778" />
+        <NodeLayout
+          Size="130,42"
+          Id="Package\Load datawarehouse  dimensions from God Sales Data\Tri_com"
+          TopLeft="225.25,189.25" />
+        <NodeLayout
+          Size="134,42"
+          Id="Package\Load datawarehouse  dimensions from God Sales Data\Commercial"
+          TopLeft="572.071428571429,707.702380952381" />
+        <EdgeLayout
+          Id="Package\Load datawarehouse  dimensions from God Sales Data.Paths[Sortie de tri]"
+          TopLeft="307.944444444444,467.583333333333">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="167.972222222223,-69.833333333334"
+              Start="0,0"
+              End="167.972222222223,-62.333333333334">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,-37.5974729241881" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,-37.5974729241881"
+                    Point2="0,-41.5974729241881"
+                    Point3="4,-41.5974729241881" />
+                  <mssgle:LineSegment
+                    End="163.972222222223,-41.5974729241881" />
+                  <mssgle:CubicBezierSegment
+                    Point1="163.972222222223,-41.5974729241881"
+                    Point2="167.972222222223,-41.5974729241881"
+                    Point3="167.972222222223,-45.5974729241881" />
+                  <mssgle:LineSegment
+                    End="167.972222222223,-62.333333333334" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load datawarehouse  dimensions from God Sales Data.Paths[Sortie de source OLE DB2]"
+          TopLeft="126.666666666667,46.083333333333">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="309.194444444444,48.888888888889"
+              Start="0,0"
+              End="309.194444444444,41.388888888889">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,25.033631332482" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,25.033631332482"
+                    Point2="0,29.033631332482"
+                    Point3="4,29.033631332482" />
+                  <mssgle:LineSegment
+                    End="305.194444444444,29.033631332482" />
+                  <mssgle:CubicBezierSegment
+                    Point1="305.194444444444,29.033631332482"
+                    Point2="309.194444444444,29.033631332482"
+                    Point3="309.194444444444,33.033631332482" />
+                  <mssgle:LineSegment
+                    End="309.194444444444,41.388888888889" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load datawarehouse  dimensions from God Sales Data.Paths[Sortie de source OLE DB1]"
+          TopLeft="110.424603174603,575.25">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,88.0595238095229"
+              Start="0,0"
+              End="0,80.5595238095229">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,80.5595238095229" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load datawarehouse  dimensions from God Sales Data.Paths[Sortie de source OLE DB]"
+          TopLeft="188.166666666667,486.180555555555">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="44.2777777777774,0"
+              Start="0,0"
+              End="36.7777777777774,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="36.7777777777774,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load datawarehouse  dimensions from God Sales Data.Paths[Sortie de multidiffusion 2]"
+          TopLeft="460.361111111111,136.972222222222">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-170.111111111111,52.277777777778"
+              Start="0,0"
+              End="-170.111111111111,44.777777777778">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,22.138888888889" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,22.138888888889"
+                    Point2="0,26.138888888889"
+                    Point3="-4,26.138888888889" />
+                  <mssgle:LineSegment
+                    End="-166.111111111111,26.138888888889" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-166.111111111111,26.138888888889"
+                    Point2="-170.111111111111,26.138888888889"
+                    Point3="-170.111111111111,30.138888888889" />
+                  <mssgle:LineSegment
+                    End="-170.111111111111,44.777777777778" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load datawarehouse  dimensions from God Sales Data.Paths[Sortie de jointure de fusion1]"
+          TopLeft="505.722222222222,588.819444444445">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="69.277777777778,0"
+              Start="0,0"
+              End="61.777777777778,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="61.777777777778,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load datawarehouse  dimensions from God Sales Data.Paths[Sortie de jointure de fusion]"
+          TopLeft="546.583333333333,397.749999999999">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="256.666666666667,74.388888888891"
+              Start="0,0"
+              End="256.666666666667,66.888888888891">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.0778178900931" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26.0778178900931"
+                    Point2="0,30.0778178900931"
+                    Point3="4,30.0778178900931" />
+                  <mssgle:LineSegment
+                    End="252.666666666667,30.0778178900931" />
+                  <mssgle:CubicBezierSegment
+                    Point1="252.666666666667,30.0778178900931"
+                    Point2="256.666666666667,30.0778178900931"
+                    Point3="256.666666666667,34.0778178900931" />
+                  <mssgle:LineSegment
+                    End="256.666666666667,66.888888888891" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load datawarehouse  dimensions from God Sales Data.Paths[Sortie d'erreur de recherche]"
+          TopLeft="642.535714285714,609.75">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,97.9523809523811"
+              Start="0,0"
+              End="0,90.4523809523811">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,90.4523809523811" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-62.46701171875,40.3516787574406,124.9340234375,9.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load datawarehouse  dimensions from God Sales Data.Paths[Multidiffusion sortie 1]"
+          TopLeft="396.359126984127,658.289682539683">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,-48.400793650794"
+              Start="0,0"
+              End="0,-40.900793650794">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,-40.900793650794" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load datawarehouse  dimensions from God Sales Data.Paths[Sortie de tri3]"
+          TopLeft="188.654761904762,681.799603174603">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="142.34126984127,0"
+              Start="0,0"
+              End="134.84126984127,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="134.84126984127,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load datawarehouse  dimensions from God Sales Data.Paths[Sortie de tri2]"
+          TopLeft="290.25,231.25">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="221,124.499999999999"
+              Start="0,0"
+              End="221,116.999999999999">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,58.2499999999995" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,58.2499999999995"
+                    Point2="0,62.2499999999995"
+                    Point3="4,62.2499999999995" />
+                  <mssgle:LineSegment
+                    End="217,62.2499999999995" />
+                  <mssgle:CubicBezierSegment
+                    Point1="217,62.2499999999995"
+                    Point2="221,62.2499999999995"
+                    Point3="221,66.2499999999995" />
+                  <mssgle:LineSegment
+                    End="221,116.999999999999" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load datawarehouse  dimensions from God Sales Data.Paths[Sortie de tri1]"
+          TopLeft="803.25,514.13888888889">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-406.527777777778,53.749999999999"
+              Start="0,0"
+              End="-406.527777777778,46.249999999999">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,22.8749999999995" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,22.8749999999995"
+                    Point2="0,26.8749999999995"
+                    Point3="-4,26.8749999999995" />
+                  <mssgle:LineSegment
+                    End="-402.527777777778,26.8749999999995" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-402.527777777778,26.8749999999995"
+                    Point2="-406.527777777778,26.8749999999995"
+                    Point3="-406.527777777778,30.8749999999995" />
+                  <mssgle:LineSegment
+                    End="-406.527777777778,46.249999999999" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load datawarehouse  dimensions from God Sales Data\Sales Zone">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load datawarehouse  dimensions from God Sales Data\Sales Data">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load datawarehouse  dimensions from God Sales Data\seach commercial">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[mydb].[commercial]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load datawarehouse  dimensions from God Sales Data\Zone_com">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load datawarehouse  dimensions from God Sales Data\Commercial">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

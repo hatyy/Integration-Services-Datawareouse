@@ -1,0 +1,1784 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="2/27/2020 8:39:09 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-MO13FAB"
+  DTS:CreatorName="DESKTOP-MO13FAB\a"
+  DTS:DTSID="{57B571F4-FFBC-4D4C-B2EE-9191F951C9CD}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.1301.433"
+  DTS:LocaleID="1036"
+  DTS:ObjectName="ETL_For_Newer_Sales"
+  DTS:PackageType="5"
+  DTS:VersionBuild="15"
+  DTS:VersionGUID="{DCA897E2-C0EF-47AD-921D-C896AC02586D}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Gestionnaire de connexions Excel]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{2D68163E-8ED1-4F09-A9FD-F2AADA549DBB}"
+      DTS:ObjectName="Gestionnaire de connexions Excel">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">@[User::Repertoire]+ @[User::File]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\a\Desktop\newer_sales\newer_sales.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Gestionnaire de connexions Excel 1]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{18084570-7076-4542-92F8-D4A3A442FD83}"
+      DTS:ObjectName="Gestionnaire de connexions Excel 1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\a\Desktop\newer_sales\IS BLANK CLASS.xls;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Gestionnaire de connexions Excel 2]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{CB0F21D5-AD41-45DD-92B3-3AD76171AF73}"
+      DTS:ObjectName="Gestionnaire de connexions Excel 2">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\a\Desktop\newer_sales\IS BLANK CLASS.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Gestionnaire de connexions Excel 3]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{B2298CA3-2627-4393-9439-CE43B8C7ED3E}"
+      DTS:ObjectName="Gestionnaire de connexions Excel 3">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\a\Desktop\newer_sales\IS BLANK CLASS.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Gestionnaire de connexions Excel 4]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{A024C22A-17EA-4810-949C-27515CFFC6BC}"
+      DTS:ObjectName="Gestionnaire de connexions Excel 4">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\a\Desktop\newer_sales\IS NOT  BLANK CLASS.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Gestionnaire de connexions Excel 5]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{83D7133E-E649-4048-B20B-FCE9368E474B}"
+      DTS:ObjectName="Gestionnaire de connexions Excel 5">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\a\Desktop\newer_sales\ALL\IS BLANK CLASS.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Gestionnaire de connexions Excel 6]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{4FCA3183-4B2F-4D88-86A6-738B8BB57BCE}"
+      DTS:ObjectName="Gestionnaire de connexions Excel 6">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\a\Desktop\newer_sales\ALL\IS NOT  BLANK CLASS.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{C5080088-980D-4556-900C-56A8842F1C53}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="File">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{8EBA0487-459F-4400-9EF1-9733F0CADA88}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="Repertoire">
+      <DTS:VariableValue
+        DTS:DataType="8">C:\Users\a\Desktop\newer_sales\</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Conteneur de boucles Foreach"
+      DTS:CreationName="STOCK:FOREACHLOOP"
+      DTS:Description="Conteneur de boucles Foreach"
+      DTS:DTSID="{3DB7ADFB-843E-4FB7-9B54-EF8C8A6C47AF}"
+      DTS:ExecutableType="STOCK:FOREACHLOOP"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Conteneur de boucles Foreach">
+      <DTS:ForEachEnumerator
+        DTS:CreationName="Microsoft.ForEachFileEnumerator"
+        DTS:DTSID="{071EC0E5-159A-4E0F-86CB-682375328560}"
+        DTS:ObjectName="{071EC0E5-159A-4E0F-86CB-682375328560}">
+        <DTS:PropertyExpression
+          DTS:Name="Directory">@[User::Repertoire]</DTS:PropertyExpression>
+        <DTS:ObjectData>
+          <ForEachFileEnumeratorProperties>
+            <FEFEProperty
+              Folder="C:\Users\a\Desktop\newer_sales\" />
+            <FEFEProperty
+              FileSpec="*.*" />
+            <FEFEProperty
+              FileNameRetrievalType="0" />
+            <FEFEProperty
+              Recurse="0" />
+          </ForEachFileEnumeratorProperties>
+        </DTS:ObjectData>
+      </DTS:ForEachEnumerator>
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Conteneur de boucles Foreach\Load New Files"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Tâche de flux de données"
+          DTS:DTSID="{E6B91E5B-93D5-4CD3-9EF5-7F7868F1ADF5}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Load New Files"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\Conteneur de boucles Foreach\Load New Files\BLANK CLASS"
+                  componentClassID="Microsoft.ExcelDestination"
+                  contactInfo="Destination Excel;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;0"
+                  description="Destination Excel"
+                  name="BLANK CLASS"
+                  usesDispositions="true">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                      name="OpenRowset">DONNEES$</property>
+                    <property
+                      dataType="System.String"
+                      description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="Commande SQL à exécuter."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Spécifie le mode utilisé pour accéder à la base de données."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indique si les valeurs fournies pour les colonnes d'identité seront copiées à la destination. Si la valeur est définie à False, les valeurs des colonnes d'identité seront générées automatiquement à la destination. Ne s'applique que si le chargement rapide est activé."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indique si les colonnes contenant la valeur NULL auront cette valeur NULL copiée à la destination. Si la valeur est définie à False, les colonnes contenant la valeur NULL auront leurs valeurs par défaut insérées à la destination. Ne s'applique que si le chargement rapide est activé."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Spécifie les options à utiliser avec le chargement rapide.  Ne s'applique que si le chargement rapide est activé."
+                      name="FastLoadOptions"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Spécifie quand les validations sont émises pendant l'insertion des données.  Une valeur égale à 0 spécifie qu'une validation sera émise à la fin de l'insertion des données.  Ne s'applique que si le chargement rapide est activé."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Conteneur de boucles Foreach\Load New Files\BLANK CLASS.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[Gestionnaire de connexions Excel 5]"
+                      connectionManagerRefId="Package.ConnectionManagers[Gestionnaire de connexions Excel 5]"
+                      description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Conteneur de boucles Foreach\Load New Files\BLANK CLASS.Inputs[Entrée de destination Excel]"
+                      errorOrTruncationOperation="Insérer"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="Entrée de destination Excel">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Conteneur de boucles Foreach\Load New Files\BLANK CLASS.Inputs[Entrée de destination Excel].Columns[YEAR]"
+                          cachedDataType="r8"
+                          cachedName="YEAR"
+                          externalMetadataColumnId="Package\Conteneur de boucles Foreach\Load New Files\BLANK CLASS.Inputs[Entrée de destination Excel].ExternalColumns[YEAR]"
+                          lineageId="Package\Conteneur de boucles Foreach\Load New Files\Source Excel.Outputs[Sortie de source Excel].Columns[YEAR]" />
+                        <inputColumn
+                          refId="Package\Conteneur de boucles Foreach\Load New Files\BLANK CLASS.Inputs[Entrée de destination Excel].Columns[Month]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="Month"
+                          externalMetadataColumnId="Package\Conteneur de boucles Foreach\Load New Files\BLANK CLASS.Inputs[Entrée de destination Excel].ExternalColumns[Month]"
+                          lineageId="Package\Conteneur de boucles Foreach\Load New Files\Source Excel.Outputs[Sortie de source Excel].Columns[Month]" />
+                        <inputColumn
+                          refId="Package\Conteneur de boucles Foreach\Load New Files\BLANK CLASS.Inputs[Entrée de destination Excel].Columns[WEEK]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="WEEK"
+                          externalMetadataColumnId="Package\Conteneur de boucles Foreach\Load New Files\BLANK CLASS.Inputs[Entrée de destination Excel].ExternalColumns[WEEK]"
+                          lineageId="Package\Conteneur de boucles Foreach\Load New Files\Source Excel.Outputs[Sortie de source Excel].Columns[WEEK]" />
+                        <inputColumn
+                          refId="Package\Conteneur de boucles Foreach\Load New Files\BLANK CLASS.Inputs[Entrée de destination Excel].Columns[N° POS]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="N° POS"
+                          externalMetadataColumnId="Package\Conteneur de boucles Foreach\Load New Files\BLANK CLASS.Inputs[Entrée de destination Excel].ExternalColumns[N° POS]"
+                          lineageId="Package\Conteneur de boucles Foreach\Load New Files\Source Excel.Outputs[Sortie de source Excel].Columns[N° POS]" />
+                        <inputColumn
+                          refId="Package\Conteneur de boucles Foreach\Load New Files\BLANK CLASS.Inputs[Entrée de destination Excel].Columns[POS NAME]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="POS NAME"
+                          externalMetadataColumnId="Package\Conteneur de boucles Foreach\Load New Files\BLANK CLASS.Inputs[Entrée de destination Excel].ExternalColumns[POS NAME]"
+                          lineageId="Package\Conteneur de boucles Foreach\Load New Files\Source Excel.Outputs[Sortie de source Excel].Columns[POS NAME]" />
+                        <inputColumn
+                          refId="Package\Conteneur de boucles Foreach\Load New Files\BLANK CLASS.Inputs[Entrée de destination Excel].Columns[CLASS]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="CLASS"
+                          externalMetadataColumnId="Package\Conteneur de boucles Foreach\Load New Files\BLANK CLASS.Inputs[Entrée de destination Excel].ExternalColumns[CLASS]"
+                          lineageId="Package\Conteneur de boucles Foreach\Load New Files\Source Excel.Outputs[Sortie de source Excel].Columns[CLASS]" />
+                        <inputColumn
+                          refId="Package\Conteneur de boucles Foreach\Load New Files\BLANK CLASS.Inputs[Entrée de destination Excel].Columns[PROMOTER]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="PROMOTER"
+                          externalMetadataColumnId="Package\Conteneur de boucles Foreach\Load New Files\BLANK CLASS.Inputs[Entrée de destination Excel].ExternalColumns[PROMOTER]"
+                          lineageId="Package\Conteneur de boucles Foreach\Load New Files\Source Excel.Outputs[Sortie de source Excel].Columns[PROMOTER]" />
+                        <inputColumn
+                          refId="Package\Conteneur de boucles Foreach\Load New Files\BLANK CLASS.Inputs[Entrée de destination Excel].Columns[ADRESS]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="ADRESS"
+                          externalMetadataColumnId="Package\Conteneur de boucles Foreach\Load New Files\BLANK CLASS.Inputs[Entrée de destination Excel].ExternalColumns[ADRESS]"
+                          lineageId="Package\Conteneur de boucles Foreach\Load New Files\Source Excel.Outputs[Sortie de source Excel].Columns[ADRESS]" />
+                        <inputColumn
+                          refId="Package\Conteneur de boucles Foreach\Load New Files\BLANK CLASS.Inputs[Entrée de destination Excel].Columns[MARQUE]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="MARQUE"
+                          externalMetadataColumnId="Package\Conteneur de boucles Foreach\Load New Files\BLANK CLASS.Inputs[Entrée de destination Excel].ExternalColumns[MARQUE]"
+                          lineageId="Package\Conteneur de boucles Foreach\Load New Files\Source Excel.Outputs[Sortie de source Excel].Columns[MARQUE]" />
+                        <inputColumn
+                          refId="Package\Conteneur de boucles Foreach\Load New Files\BLANK CLASS.Inputs[Entrée de destination Excel].Columns[SEGMENT]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="SEGMENT"
+                          externalMetadataColumnId="Package\Conteneur de boucles Foreach\Load New Files\BLANK CLASS.Inputs[Entrée de destination Excel].ExternalColumns[SEGMENT]"
+                          lineageId="Package\Conteneur de boucles Foreach\Load New Files\Source Excel.Outputs[Sortie de source Excel].Columns[SEGMENT]" />
+                        <inputColumn
+                          refId="Package\Conteneur de boucles Foreach\Load New Files\BLANK CLASS.Inputs[Entrée de destination Excel].Columns[MODELES]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="MODELES"
+                          externalMetadataColumnId="Package\Conteneur de boucles Foreach\Load New Files\BLANK CLASS.Inputs[Entrée de destination Excel].ExternalColumns[MODELES]"
+                          lineageId="Package\Conteneur de boucles Foreach\Load New Files\Source Excel.Outputs[Sortie de source Excel].Columns[MODELES]" />
+                        <inputColumn
+                          refId="Package\Conteneur de boucles Foreach\Load New Files\BLANK CLASS.Inputs[Entrée de destination Excel].Columns[CODE]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="CODE"
+                          externalMetadataColumnId="Package\Conteneur de boucles Foreach\Load New Files\BLANK CLASS.Inputs[Entrée de destination Excel].ExternalColumns[CODE]"
+                          lineageId="Package\Conteneur de boucles Foreach\Load New Files\Source Excel.Outputs[Sortie de source Excel].Columns[CODE]" />
+                        <inputColumn
+                          refId="Package\Conteneur de boucles Foreach\Load New Files\BLANK CLASS.Inputs[Entrée de destination Excel].Columns[QUANTITE VENDUE]"
+                          cachedDataType="r8"
+                          cachedName="QUANTITE VENDUE"
+                          externalMetadataColumnId="Package\Conteneur de boucles Foreach\Load New Files\BLANK CLASS.Inputs[Entrée de destination Excel].ExternalColumns[QUANTITE VENDUE]"
+                          lineageId="Package\Conteneur de boucles Foreach\Load New Files\Source Excel.Outputs[Sortie de source Excel].Columns[QUANTITE VENDUE]" />
+                        <inputColumn
+                          refId="Package\Conteneur de boucles Foreach\Load New Files\BLANK CLASS.Inputs[Entrée de destination Excel].Columns[PRIX D'ACHAT]"
+                          cachedDataType="r8"
+                          cachedName="PRIX D'ACHAT"
+                          externalMetadataColumnId="Package\Conteneur de boucles Foreach\Load New Files\BLANK CLASS.Inputs[Entrée de destination Excel].ExternalColumns[PRIX D'ACHAT]"
+                          lineageId="Package\Conteneur de boucles Foreach\Load New Files\Source Excel.Outputs[Sortie de source Excel].Columns[PRIX D'ACHAT]" />
+                        <inputColumn
+                          refId="Package\Conteneur de boucles Foreach\Load New Files\BLANK CLASS.Inputs[Entrée de destination Excel].Columns[PRIX DE VENTE]"
+                          cachedDataType="r8"
+                          cachedName="PRIX DE VENTE"
+                          externalMetadataColumnId="Package\Conteneur de boucles Foreach\Load New Files\BLANK CLASS.Inputs[Entrée de destination Excel].ExternalColumns[PRIX DE VENTE]"
+                          lineageId="Package\Conteneur de boucles Foreach\Load New Files\Source Excel.Outputs[Sortie de source Excel].Columns[PRIX DE VENTE]" />
+                        <inputColumn
+                          refId="Package\Conteneur de boucles Foreach\Load New Files\BLANK CLASS.Inputs[Entrée de destination Excel].Columns[STOCK DISPONIBLE]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="STOCK DISPONIBLE"
+                          externalMetadataColumnId="Package\Conteneur de boucles Foreach\Load New Files\BLANK CLASS.Inputs[Entrée de destination Excel].ExternalColumns[STOCK DISPONIBLE]"
+                          lineageId="Package\Conteneur de boucles Foreach\Load New Files\Source Excel.Outputs[Sortie de source Excel].Columns[STOCK DISPONIBLE]" />
+                        <inputColumn
+                          refId="Package\Conteneur de boucles Foreach\Load New Files\BLANK CLASS.Inputs[Entrée de destination Excel].Columns[COMMANDE]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="COMMANDE"
+                          externalMetadataColumnId="Package\Conteneur de boucles Foreach\Load New Files\BLANK CLASS.Inputs[Entrée de destination Excel].ExternalColumns[COMMANDE]"
+                          lineageId="Package\Conteneur de boucles Foreach\Load New Files\Source Excel.Outputs[Sortie de source Excel].Columns[COMMANDE]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Conteneur de boucles Foreach\Load New Files\BLANK CLASS.Inputs[Entrée de destination Excel].ExternalColumns[YEAR]"
+                          dataType="wstr"
+                          length="255"
+                          name="YEAR" />
+                        <externalMetadataColumn
+                          refId="Package\Conteneur de boucles Foreach\Load New Files\BLANK CLASS.Inputs[Entrée de destination Excel].ExternalColumns[Month]"
+                          dataType="wstr"
+                          length="255"
+                          name="Month" />
+                        <externalMetadataColumn
+                          refId="Package\Conteneur de boucles Foreach\Load New Files\BLANK CLASS.Inputs[Entrée de destination Excel].ExternalColumns[WEEK]"
+                          dataType="wstr"
+                          length="255"
+                          name="WEEK" />
+                        <externalMetadataColumn
+                          refId="Package\Conteneur de boucles Foreach\Load New Files\BLANK CLASS.Inputs[Entrée de destination Excel].ExternalColumns[N° POS]"
+                          dataType="wstr"
+                          length="255"
+                          name="N° POS" />
+                        <externalMetadataColumn
+                          refId="Package\Conteneur de boucles Foreach\Load New Files\BLANK CLASS.Inputs[Entrée de destination Excel].ExternalColumns[POS NAME]"
+                          dataType="wstr"
+                          length="255"
+                          name="POS NAME" />
+                        <externalMetadataColumn
+                          refId="Package\Conteneur de boucles Foreach\Load New Files\BLANK CLASS.Inputs[Entrée de destination Excel].ExternalColumns[CLASS]"
+                          dataType="wstr"
+                          length="255"
+                          name="CLASS" />
+                        <externalMetadataColumn
+                          refId="Package\Conteneur de boucles Foreach\Load New Files\BLANK CLASS.Inputs[Entrée de destination Excel].ExternalColumns[PROMOTER]"
+                          dataType="wstr"
+                          length="255"
+                          name="PROMOTER" />
+                        <externalMetadataColumn
+                          refId="Package\Conteneur de boucles Foreach\Load New Files\BLANK CLASS.Inputs[Entrée de destination Excel].ExternalColumns[ADRESS]"
+                          dataType="wstr"
+                          length="255"
+                          name="ADRESS" />
+                        <externalMetadataColumn
+                          refId="Package\Conteneur de boucles Foreach\Load New Files\BLANK CLASS.Inputs[Entrée de destination Excel].ExternalColumns[MARQUE]"
+                          dataType="wstr"
+                          length="255"
+                          name="MARQUE" />
+                        <externalMetadataColumn
+                          refId="Package\Conteneur de boucles Foreach\Load New Files\BLANK CLASS.Inputs[Entrée de destination Excel].ExternalColumns[SEGMENT]"
+                          dataType="wstr"
+                          length="255"
+                          name="SEGMENT" />
+                        <externalMetadataColumn
+                          refId="Package\Conteneur de boucles Foreach\Load New Files\BLANK CLASS.Inputs[Entrée de destination Excel].ExternalColumns[MODELES]"
+                          dataType="wstr"
+                          length="255"
+                          name="MODELES" />
+                        <externalMetadataColumn
+                          refId="Package\Conteneur de boucles Foreach\Load New Files\BLANK CLASS.Inputs[Entrée de destination Excel].ExternalColumns[CODE]"
+                          dataType="wstr"
+                          length="255"
+                          name="CODE" />
+                        <externalMetadataColumn
+                          refId="Package\Conteneur de boucles Foreach\Load New Files\BLANK CLASS.Inputs[Entrée de destination Excel].ExternalColumns[QUANTITE VENDUE]"
+                          dataType="wstr"
+                          length="255"
+                          name="QUANTITE VENDUE" />
+                        <externalMetadataColumn
+                          refId="Package\Conteneur de boucles Foreach\Load New Files\BLANK CLASS.Inputs[Entrée de destination Excel].ExternalColumns[PRIX D'ACHAT]"
+                          dataType="wstr"
+                          length="255"
+                          name="PRIX D'ACHAT" />
+                        <externalMetadataColumn
+                          refId="Package\Conteneur de boucles Foreach\Load New Files\BLANK CLASS.Inputs[Entrée de destination Excel].ExternalColumns[PRIX DE VENTE]"
+                          dataType="wstr"
+                          length="255"
+                          name="PRIX DE VENTE" />
+                        <externalMetadataColumn
+                          refId="Package\Conteneur de boucles Foreach\Load New Files\BLANK CLASS.Inputs[Entrée de destination Excel].ExternalColumns[STOCK DISPONIBLE]"
+                          dataType="wstr"
+                          length="255"
+                          name="STOCK DISPONIBLE" />
+                        <externalMetadataColumn
+                          refId="Package\Conteneur de boucles Foreach\Load New Files\BLANK CLASS.Inputs[Entrée de destination Excel].ExternalColumns[COMMANDE]"
+                          dataType="wstr"
+                          length="255"
+                          name="COMMANDE" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Conteneur de boucles Foreach\Load New Files\BLANK CLASS.Outputs[Sortie d'erreur de destination Excel]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Sortie d'erreur de destination Excel"
+                      synchronousInputId="Package\Conteneur de boucles Foreach\Load New Files\BLANK CLASS.Inputs[Entrée de destination Excel]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Conteneur de boucles Foreach\Load New Files\BLANK CLASS.Outputs[Sortie d'erreur de destination Excel].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Conteneur de boucles Foreach\Load New Files\BLANK CLASS.Outputs[Sortie d'erreur de destination Excel].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Conteneur de boucles Foreach\Load New Files\BLANK CLASS.Outputs[Sortie d'erreur de destination Excel].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Conteneur de boucles Foreach\Load New Files\BLANK CLASS.Outputs[Sortie d'erreur de destination Excel].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Conteneur de boucles Foreach\Load New Files\ETL Data"
+                  componentClassID="Microsoft.DerivedColumn"
+                  contactInfo="Colonne dérivée;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;0"
+                  description="Crée de nouvelles valeurs de colonne en appliquant des expressions aux colonnes d'entrée de transformation. Créez de nouvelles colonnes ou remplacez celles qui existent déjà. Par exemple, concaténez les valeurs de la colonne 'prénom' et de la colonne 'nom' pour créer une colonne 'nom complet'."
+                  name="ETL Data"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\Conteneur de boucles Foreach\Load New Files\ETL Data.Inputs[Entrée de colonne dérivée]"
+                      description="Entrée de la transformation de colonnes dérivées"
+                      name="Entrée de colonne dérivée">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Conteneur de boucles Foreach\Load New Files\ETL Data.Inputs[Entrée de colonne dérivée].Columns[Month]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="Month"
+                          errorOrTruncationOperation="Calcul"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\Conteneur de boucles Foreach\Load New Files\Source Excel.Outputs[Sortie de source Excel].Columns[Month]"
+                          truncationRowDisposition="FailComponent"
+                          usageType="readWrite">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Expression de colonne dérivée"
+                              name="Expression">[REPLACE]([UPPER]([TRIM](#{Package\Conteneur de boucles Foreach\Load New Files\Source Excel.Outputs[Sortie de source Excel].Columns[Month]})),"É","E")</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Expression claire de colonne dérivée"
+                              expressionType="Notify"
+                              name="FriendlyExpression">REPLACE(UPPER(TRIM(Month)),"É","E")</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Conteneur de boucles Foreach\Load New Files\ETL Data.Inputs[Entrée de colonne dérivée].Columns[WEEK]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="WEEK"
+                          errorOrTruncationOperation="Calcul"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\Conteneur de boucles Foreach\Load New Files\Source Excel.Outputs[Sortie de source Excel].Columns[WEEK]"
+                          truncationRowDisposition="FailComponent"
+                          usageType="readWrite">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Expression de colonne dérivée"
+                              name="Expression">[TRIM](#{Package\Conteneur de boucles Foreach\Load New Files\Source Excel.Outputs[Sortie de source Excel].Columns[WEEK]})</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Expression claire de colonne dérivée"
+                              expressionType="Notify"
+                              name="FriendlyExpression">TRIM(WEEK)</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Conteneur de boucles Foreach\Load New Files\ETL Data.Inputs[Entrée de colonne dérivée].Columns[POS NAME]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="POS NAME"
+                          errorOrTruncationOperation="Calcul"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\Conteneur de boucles Foreach\Load New Files\Source Excel.Outputs[Sortie de source Excel].Columns[POS NAME]"
+                          truncationRowDisposition="FailComponent"
+                          usageType="readWrite">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Expression de colonne dérivée"
+                              name="Expression">[REPLACE]([REPLACE]([UPPER]([TRIM](#{Package\Conteneur de boucles Foreach\Load New Files\Source Excel.Outputs[Sortie de source Excel].Columns[POS NAME]})),"É","E"),"Ô","O")</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Expression claire de colonne dérivée"
+                              expressionType="Notify"
+                              name="FriendlyExpression">REPLACE(REPLACE(UPPER(TRIM([POS NAME])),"É","E"),"Ô","O")</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Conteneur de boucles Foreach\Load New Files\ETL Data.Inputs[Entrée de colonne dérivée].Columns[CLASS]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="CLASS"
+                          errorOrTruncationOperation="Calcul"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\Conteneur de boucles Foreach\Load New Files\Source Excel.Outputs[Sortie de source Excel].Columns[CLASS]"
+                          truncationRowDisposition="FailComponent"
+                          usageType="readWrite">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Expression de colonne dérivée"
+                              name="Expression">[UPPER]([TRIM](#{Package\Conteneur de boucles Foreach\Load New Files\Source Excel.Outputs[Sortie de source Excel].Columns[CLASS]}))</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Expression claire de colonne dérivée"
+                              expressionType="Notify"
+                              name="FriendlyExpression">UPPER(TRIM(CLASS))</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Conteneur de boucles Foreach\Load New Files\ETL Data.Inputs[Entrée de colonne dérivée].Columns[PROMOTER]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="PROMOTER"
+                          errorOrTruncationOperation="Calcul"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\Conteneur de boucles Foreach\Load New Files\Source Excel.Outputs[Sortie de source Excel].Columns[PROMOTER]"
+                          truncationRowDisposition="FailComponent"
+                          usageType="readWrite">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Expression de colonne dérivée"
+                              name="Expression">[REPLACE]([UPPER]([TRIM](#{Package\Conteneur de boucles Foreach\Load New Files\Source Excel.Outputs[Sortie de source Excel].Columns[PROMOTER]})),"É","E")</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Expression claire de colonne dérivée"
+                              expressionType="Notify"
+                              name="FriendlyExpression">REPLACE(UPPER(TRIM(PROMOTER)),"É","E")</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Conteneur de boucles Foreach\Load New Files\ETL Data.Inputs[Entrée de colonne dérivée].Columns[MARQUE]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="MARQUE"
+                          errorOrTruncationOperation="Calcul"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\Conteneur de boucles Foreach\Load New Files\Source Excel.Outputs[Sortie de source Excel].Columns[MARQUE]"
+                          truncationRowDisposition="FailComponent"
+                          usageType="readWrite">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Expression de colonne dérivée"
+                              name="Expression">[UPPER]([TRIM](#{Package\Conteneur de boucles Foreach\Load New Files\Source Excel.Outputs[Sortie de source Excel].Columns[MARQUE]}))</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Expression claire de colonne dérivée"
+                              expressionType="Notify"
+                              name="FriendlyExpression">UPPER(TRIM(MARQUE))</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Conteneur de boucles Foreach\Load New Files\ETL Data.Inputs[Entrée de colonne dérivée].Columns[SEGMENT]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="SEGMENT"
+                          errorOrTruncationOperation="Calcul"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\Conteneur de boucles Foreach\Load New Files\Source Excel.Outputs[Sortie de source Excel].Columns[SEGMENT]"
+                          truncationRowDisposition="FailComponent"
+                          usageType="readWrite">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Expression de colonne dérivée"
+                              name="Expression">[UPPER]([TRIM](#{Package\Conteneur de boucles Foreach\Load New Files\Source Excel.Outputs[Sortie de source Excel].Columns[SEGMENT]}))</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Expression claire de colonne dérivée"
+                              expressionType="Notify"
+                              name="FriendlyExpression">UPPER(TRIM(SEGMENT))</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Conteneur de boucles Foreach\Load New Files\ETL Data.Inputs[Entrée de colonne dérivée].Columns[MODELES]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="MODELES"
+                          errorOrTruncationOperation="Calcul"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\Conteneur de boucles Foreach\Load New Files\Source Excel.Outputs[Sortie de source Excel].Columns[MODELES]"
+                          truncationRowDisposition="FailComponent"
+                          usageType="readWrite">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Expression de colonne dérivée"
+                              name="Expression">[UPPER]([TRIM](#{Package\Conteneur de boucles Foreach\Load New Files\Source Excel.Outputs[Sortie de source Excel].Columns[MODELES]}))</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Expression claire de colonne dérivée"
+                              expressionType="Notify"
+                              name="FriendlyExpression">UPPER(TRIM(MODELES))</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Conteneur de boucles Foreach\Load New Files\ETL Data.Inputs[Entrée de colonne dérivée].Columns[CODE]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="CODE"
+                          errorOrTruncationOperation="Calcul"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\Conteneur de boucles Foreach\Load New Files\Source Excel.Outputs[Sortie de source Excel].Columns[CODE]"
+                          truncationRowDisposition="FailComponent"
+                          usageType="readWrite">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Expression de colonne dérivée"
+                              name="Expression">[UPPER]([TRIM](#{Package\Conteneur de boucles Foreach\Load New Files\Source Excel.Outputs[Sortie de source Excel].Columns[CODE]}))</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Expression claire de colonne dérivée"
+                              expressionType="Notify"
+                              name="FriendlyExpression">UPPER(TRIM(CODE))</property>
+                          </properties>
+                        </inputColumn>
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Conteneur de boucles Foreach\Load New Files\ETL Data.Outputs[Sortie de colonne dérivée]"
+                      description="Sortie par défaut de la transformation de colonnes dérivées"
+                      exclusionGroup="1"
+                      name="Sortie de colonne dérivée"
+                      synchronousInputId="Package\Conteneur de boucles Foreach\Load New Files\ETL Data.Inputs[Entrée de colonne dérivée]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Conteneur de boucles Foreach\Load New Files\ETL Data.Outputs[Sortie d'erreur de colonne dérivée]"
+                      description="Sortie d'erreur de la transformation de colonnes dérivées"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Sortie d'erreur de colonne dérivée"
+                      synchronousInputId="Package\Conteneur de boucles Foreach\Load New Files\ETL Data.Inputs[Entrée de colonne dérivée]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Conteneur de boucles Foreach\Load New Files\ETL Data.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Conteneur de boucles Foreach\Load New Files\ETL Data.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Conteneur de boucles Foreach\Load New Files\ETL Data.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Conteneur de boucles Foreach\Load New Files\ETL Data.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Conteneur de boucles Foreach\Load New Files\Fractionnement conditionnel"
+                  componentClassID="Microsoft.ConditionalSplit"
+                  contactInfo="Fractionnement conditionnel;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;0"
+                  description="Achemine des lignes de données vers différentes sorties, selon le contexte des données. Utilisez des conditions (expressions SSIS) pour spécifier les lignes qui seront acheminées. Par exemple, séparez les enregistrements qui doivent être nettoyés de ceux qui sont prêts à être chargés ou acheminez uniquement un sous-ensemble d'enregistrements."
+                  name="Fractionnement conditionnel"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\Conteneur de boucles Foreach\Load New Files\Fractionnement conditionnel.Inputs[Entrée de fractionnement conditionnel]"
+                      description="Entrée vers la transformation de fractionnement conditionnel"
+                      name="Entrée de fractionnement conditionnel">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Conteneur de boucles Foreach\Load New Files\Fractionnement conditionnel.Inputs[Entrée de fractionnement conditionnel].Columns[CLASS]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="CLASS"
+                          lineageId="Package\Conteneur de boucles Foreach\Load New Files\Source Excel.Outputs[Sortie de source Excel].Columns[CLASS]" />
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Conteneur de boucles Foreach\Load New Files\Fractionnement conditionnel.Outputs[BLANK CLASS]"
+                      description="Sortie 1 de la transformation de fractionnement conditionnel"
+                      errorOrTruncationOperation="Calcul"
+                      errorRowDisposition="FailComponent"
+                      exclusionGroup="1"
+                      name="BLANK CLASS"
+                      synchronousInputId="Package\Conteneur de boucles Foreach\Load New Files\Fractionnement conditionnel.Inputs[Entrée de fractionnement conditionnel]"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Spécifie l'expression. Cette version d'expression utilise les identificateurs de lignage à la place des noms de colonnes."
+                          name="Expression">[ISNULL](#{Package\Conteneur de boucles Foreach\Load New Files\Source Excel.Outputs[Sortie de source Excel].Columns[CLASS]})</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Spécifie la version claire de l'expression. Cette version d'expression utilise les noms de colonnes."
+                          expressionType="Notify"
+                          name="FriendlyExpression">ISNULL(CLASS)</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie la position de la condition dans la liste des conditions que la transformation évalue. L'ordre d'évaluation se fait par ordre croissant de valeur."
+                          name="EvaluationOrder">0</property>
+                      </properties>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Conteneur de boucles Foreach\Load New Files\Fractionnement conditionnel.Outputs[Sortie par défaut de fractionnement conditionnel]"
+                      description="Sortie par défaut de la transformation de fractionnement conditionnel"
+                      exclusionGroup="1"
+                      name="Sortie par défaut de fractionnement conditionnel"
+                      synchronousInputId="Package\Conteneur de boucles Foreach\Load New Files\Fractionnement conditionnel.Inputs[Entrée de fractionnement conditionnel]">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          name="IsDefaultOut">true</property>
+                      </properties>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Conteneur de boucles Foreach\Load New Files\Fractionnement conditionnel.Outputs[Sortie d'erreur de fractionnement conditionnel]"
+                      description="Sortie d'erreur de la transformation de fractionnement conditionnel"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Sortie d'erreur de fractionnement conditionnel"
+                      synchronousInputId="Package\Conteneur de boucles Foreach\Load New Files\Fractionnement conditionnel.Inputs[Entrée de fractionnement conditionnel]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Conteneur de boucles Foreach\Load New Files\Fractionnement conditionnel.Outputs[Sortie d'erreur de fractionnement conditionnel].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Conteneur de boucles Foreach\Load New Files\Fractionnement conditionnel.Outputs[Sortie d'erreur de fractionnement conditionnel].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Conteneur de boucles Foreach\Load New Files\Fractionnement conditionnel.Outputs[Sortie d'erreur de fractionnement conditionnel].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Conteneur de boucles Foreach\Load New Files\Fractionnement conditionnel.Outputs[Sortie d'erreur de fractionnement conditionnel].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Conteneur de boucles Foreach\Load New Files\FULL CLASS"
+                  componentClassID="Microsoft.ExcelDestination"
+                  contactInfo="Destination Excel;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;0"
+                  description="Destination Excel"
+                  name="FULL CLASS"
+                  usesDispositions="true">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                      name="OpenRowset">DONNEES$</property>
+                    <property
+                      dataType="System.String"
+                      description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="Commande SQL à exécuter."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Spécifie le mode utilisé pour accéder à la base de données."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indique si les valeurs fournies pour les colonnes d'identité seront copiées à la destination. Si la valeur est définie à False, les valeurs des colonnes d'identité seront générées automatiquement à la destination. Ne s'applique que si le chargement rapide est activé."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indique si les colonnes contenant la valeur NULL auront cette valeur NULL copiée à la destination. Si la valeur est définie à False, les colonnes contenant la valeur NULL auront leurs valeurs par défaut insérées à la destination. Ne s'applique que si le chargement rapide est activé."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Spécifie les options à utiliser avec le chargement rapide.  Ne s'applique que si le chargement rapide est activé."
+                      name="FastLoadOptions"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Spécifie quand les validations sont émises pendant l'insertion des données.  Une valeur égale à 0 spécifie qu'une validation sera émise à la fin de l'insertion des données.  Ne s'applique que si le chargement rapide est activé."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Conteneur de boucles Foreach\Load New Files\FULL CLASS.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[Gestionnaire de connexions Excel 6]"
+                      connectionManagerRefId="Package.ConnectionManagers[Gestionnaire de connexions Excel 6]"
+                      description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Conteneur de boucles Foreach\Load New Files\FULL CLASS.Inputs[Entrée de destination Excel]"
+                      errorOrTruncationOperation="Insérer"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="Entrée de destination Excel">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Conteneur de boucles Foreach\Load New Files\FULL CLASS.Inputs[Entrée de destination Excel].Columns[YEAR]"
+                          cachedDataType="r8"
+                          cachedName="YEAR"
+                          externalMetadataColumnId="Package\Conteneur de boucles Foreach\Load New Files\FULL CLASS.Inputs[Entrée de destination Excel].ExternalColumns[YEAR]"
+                          lineageId="Package\Conteneur de boucles Foreach\Load New Files\Source Excel.Outputs[Sortie de source Excel].Columns[YEAR]" />
+                        <inputColumn
+                          refId="Package\Conteneur de boucles Foreach\Load New Files\FULL CLASS.Inputs[Entrée de destination Excel].Columns[Month]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="Month"
+                          externalMetadataColumnId="Package\Conteneur de boucles Foreach\Load New Files\FULL CLASS.Inputs[Entrée de destination Excel].ExternalColumns[Month]"
+                          lineageId="Package\Conteneur de boucles Foreach\Load New Files\Source Excel.Outputs[Sortie de source Excel].Columns[Month]" />
+                        <inputColumn
+                          refId="Package\Conteneur de boucles Foreach\Load New Files\FULL CLASS.Inputs[Entrée de destination Excel].Columns[WEEK]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="WEEK"
+                          externalMetadataColumnId="Package\Conteneur de boucles Foreach\Load New Files\FULL CLASS.Inputs[Entrée de destination Excel].ExternalColumns[WEEK]"
+                          lineageId="Package\Conteneur de boucles Foreach\Load New Files\Source Excel.Outputs[Sortie de source Excel].Columns[WEEK]" />
+                        <inputColumn
+                          refId="Package\Conteneur de boucles Foreach\Load New Files\FULL CLASS.Inputs[Entrée de destination Excel].Columns[N° POS]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="N° POS"
+                          externalMetadataColumnId="Package\Conteneur de boucles Foreach\Load New Files\FULL CLASS.Inputs[Entrée de destination Excel].ExternalColumns[N° POS]"
+                          lineageId="Package\Conteneur de boucles Foreach\Load New Files\Source Excel.Outputs[Sortie de source Excel].Columns[N° POS]" />
+                        <inputColumn
+                          refId="Package\Conteneur de boucles Foreach\Load New Files\FULL CLASS.Inputs[Entrée de destination Excel].Columns[POS NAME]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="POS NAME"
+                          externalMetadataColumnId="Package\Conteneur de boucles Foreach\Load New Files\FULL CLASS.Inputs[Entrée de destination Excel].ExternalColumns[POS NAME]"
+                          lineageId="Package\Conteneur de boucles Foreach\Load New Files\Source Excel.Outputs[Sortie de source Excel].Columns[POS NAME]" />
+                        <inputColumn
+                          refId="Package\Conteneur de boucles Foreach\Load New Files\FULL CLASS.Inputs[Entrée de destination Excel].Columns[CLASS]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="CLASS"
+                          externalMetadataColumnId="Package\Conteneur de boucles Foreach\Load New Files\FULL CLASS.Inputs[Entrée de destination Excel].ExternalColumns[CLASS]"
+                          lineageId="Package\Conteneur de boucles Foreach\Load New Files\Source Excel.Outputs[Sortie de source Excel].Columns[CLASS]" />
+                        <inputColumn
+                          refId="Package\Conteneur de boucles Foreach\Load New Files\FULL CLASS.Inputs[Entrée de destination Excel].Columns[ADRESS]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="ADRESS"
+                          externalMetadataColumnId="Package\Conteneur de boucles Foreach\Load New Files\FULL CLASS.Inputs[Entrée de destination Excel].ExternalColumns[ADRESS]"
+                          lineageId="Package\Conteneur de boucles Foreach\Load New Files\Source Excel.Outputs[Sortie de source Excel].Columns[ADRESS]" />
+                        <inputColumn
+                          refId="Package\Conteneur de boucles Foreach\Load New Files\FULL CLASS.Inputs[Entrée de destination Excel].Columns[MARQUE]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="MARQUE"
+                          externalMetadataColumnId="Package\Conteneur de boucles Foreach\Load New Files\FULL CLASS.Inputs[Entrée de destination Excel].ExternalColumns[MARQUE]"
+                          lineageId="Package\Conteneur de boucles Foreach\Load New Files\Source Excel.Outputs[Sortie de source Excel].Columns[MARQUE]" />
+                        <inputColumn
+                          refId="Package\Conteneur de boucles Foreach\Load New Files\FULL CLASS.Inputs[Entrée de destination Excel].Columns[SEGMENT]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="SEGMENT"
+                          externalMetadataColumnId="Package\Conteneur de boucles Foreach\Load New Files\FULL CLASS.Inputs[Entrée de destination Excel].ExternalColumns[SEGMENT]"
+                          lineageId="Package\Conteneur de boucles Foreach\Load New Files\Source Excel.Outputs[Sortie de source Excel].Columns[SEGMENT]" />
+                        <inputColumn
+                          refId="Package\Conteneur de boucles Foreach\Load New Files\FULL CLASS.Inputs[Entrée de destination Excel].Columns[MODELES]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="MODELES"
+                          externalMetadataColumnId="Package\Conteneur de boucles Foreach\Load New Files\FULL CLASS.Inputs[Entrée de destination Excel].ExternalColumns[MODELES]"
+                          lineageId="Package\Conteneur de boucles Foreach\Load New Files\Source Excel.Outputs[Sortie de source Excel].Columns[MODELES]" />
+                        <inputColumn
+                          refId="Package\Conteneur de boucles Foreach\Load New Files\FULL CLASS.Inputs[Entrée de destination Excel].Columns[CODE]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="CODE"
+                          externalMetadataColumnId="Package\Conteneur de boucles Foreach\Load New Files\FULL CLASS.Inputs[Entrée de destination Excel].ExternalColumns[CODE]"
+                          lineageId="Package\Conteneur de boucles Foreach\Load New Files\Source Excel.Outputs[Sortie de source Excel].Columns[CODE]" />
+                        <inputColumn
+                          refId="Package\Conteneur de boucles Foreach\Load New Files\FULL CLASS.Inputs[Entrée de destination Excel].Columns[QUANTITE VENDUE]"
+                          cachedDataType="r8"
+                          cachedName="QUANTITE VENDUE"
+                          externalMetadataColumnId="Package\Conteneur de boucles Foreach\Load New Files\FULL CLASS.Inputs[Entrée de destination Excel].ExternalColumns[QUANTITE VENDUE]"
+                          lineageId="Package\Conteneur de boucles Foreach\Load New Files\Source Excel.Outputs[Sortie de source Excel].Columns[QUANTITE VENDUE]" />
+                        <inputColumn
+                          refId="Package\Conteneur de boucles Foreach\Load New Files\FULL CLASS.Inputs[Entrée de destination Excel].Columns[PRIX D'ACHAT]"
+                          cachedDataType="r8"
+                          cachedName="PRIX D'ACHAT"
+                          externalMetadataColumnId="Package\Conteneur de boucles Foreach\Load New Files\FULL CLASS.Inputs[Entrée de destination Excel].ExternalColumns[PRIX D'ACHAT]"
+                          lineageId="Package\Conteneur de boucles Foreach\Load New Files\Source Excel.Outputs[Sortie de source Excel].Columns[PRIX D'ACHAT]" />
+                        <inputColumn
+                          refId="Package\Conteneur de boucles Foreach\Load New Files\FULL CLASS.Inputs[Entrée de destination Excel].Columns[PRIX DE VENTE]"
+                          cachedDataType="r8"
+                          cachedName="PRIX DE VENTE"
+                          externalMetadataColumnId="Package\Conteneur de boucles Foreach\Load New Files\FULL CLASS.Inputs[Entrée de destination Excel].ExternalColumns[PRIX DE VENTE]"
+                          lineageId="Package\Conteneur de boucles Foreach\Load New Files\Source Excel.Outputs[Sortie de source Excel].Columns[PRIX DE VENTE]" />
+                        <inputColumn
+                          refId="Package\Conteneur de boucles Foreach\Load New Files\FULL CLASS.Inputs[Entrée de destination Excel].Columns[STOCK DISPONIBLE]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="STOCK DISPONIBLE"
+                          externalMetadataColumnId="Package\Conteneur de boucles Foreach\Load New Files\FULL CLASS.Inputs[Entrée de destination Excel].ExternalColumns[STOCK DISPONIBLE]"
+                          lineageId="Package\Conteneur de boucles Foreach\Load New Files\Source Excel.Outputs[Sortie de source Excel].Columns[STOCK DISPONIBLE]" />
+                        <inputColumn
+                          refId="Package\Conteneur de boucles Foreach\Load New Files\FULL CLASS.Inputs[Entrée de destination Excel].Columns[COMMANDE]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="COMMANDE"
+                          externalMetadataColumnId="Package\Conteneur de boucles Foreach\Load New Files\FULL CLASS.Inputs[Entrée de destination Excel].ExternalColumns[COMMANDE]"
+                          lineageId="Package\Conteneur de boucles Foreach\Load New Files\Source Excel.Outputs[Sortie de source Excel].Columns[COMMANDE]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Conteneur de boucles Foreach\Load New Files\FULL CLASS.Inputs[Entrée de destination Excel].ExternalColumns[YEAR]"
+                          dataType="wstr"
+                          length="255"
+                          name="YEAR" />
+                        <externalMetadataColumn
+                          refId="Package\Conteneur de boucles Foreach\Load New Files\FULL CLASS.Inputs[Entrée de destination Excel].ExternalColumns[Month]"
+                          dataType="wstr"
+                          length="255"
+                          name="Month" />
+                        <externalMetadataColumn
+                          refId="Package\Conteneur de boucles Foreach\Load New Files\FULL CLASS.Inputs[Entrée de destination Excel].ExternalColumns[WEEK]"
+                          dataType="wstr"
+                          length="255"
+                          name="WEEK" />
+                        <externalMetadataColumn
+                          refId="Package\Conteneur de boucles Foreach\Load New Files\FULL CLASS.Inputs[Entrée de destination Excel].ExternalColumns[N° POS]"
+                          dataType="wstr"
+                          length="255"
+                          name="N° POS" />
+                        <externalMetadataColumn
+                          refId="Package\Conteneur de boucles Foreach\Load New Files\FULL CLASS.Inputs[Entrée de destination Excel].ExternalColumns[POS NAME]"
+                          dataType="wstr"
+                          length="255"
+                          name="POS NAME" />
+                        <externalMetadataColumn
+                          refId="Package\Conteneur de boucles Foreach\Load New Files\FULL CLASS.Inputs[Entrée de destination Excel].ExternalColumns[CLASS]"
+                          dataType="wstr"
+                          length="255"
+                          name="CLASS" />
+                        <externalMetadataColumn
+                          refId="Package\Conteneur de boucles Foreach\Load New Files\FULL CLASS.Inputs[Entrée de destination Excel].ExternalColumns[ADRESS]"
+                          dataType="wstr"
+                          length="255"
+                          name="ADRESS" />
+                        <externalMetadataColumn
+                          refId="Package\Conteneur de boucles Foreach\Load New Files\FULL CLASS.Inputs[Entrée de destination Excel].ExternalColumns[MARQUE]"
+                          dataType="wstr"
+                          length="255"
+                          name="MARQUE" />
+                        <externalMetadataColumn
+                          refId="Package\Conteneur de boucles Foreach\Load New Files\FULL CLASS.Inputs[Entrée de destination Excel].ExternalColumns[SEGMENT]"
+                          dataType="wstr"
+                          length="255"
+                          name="SEGMENT" />
+                        <externalMetadataColumn
+                          refId="Package\Conteneur de boucles Foreach\Load New Files\FULL CLASS.Inputs[Entrée de destination Excel].ExternalColumns[MODELES]"
+                          dataType="wstr"
+                          length="255"
+                          name="MODELES" />
+                        <externalMetadataColumn
+                          refId="Package\Conteneur de boucles Foreach\Load New Files\FULL CLASS.Inputs[Entrée de destination Excel].ExternalColumns[CODE]"
+                          dataType="wstr"
+                          length="255"
+                          name="CODE" />
+                        <externalMetadataColumn
+                          refId="Package\Conteneur de boucles Foreach\Load New Files\FULL CLASS.Inputs[Entrée de destination Excel].ExternalColumns[QUANTITE VENDUE]"
+                          dataType="wstr"
+                          length="255"
+                          name="QUANTITE VENDUE" />
+                        <externalMetadataColumn
+                          refId="Package\Conteneur de boucles Foreach\Load New Files\FULL CLASS.Inputs[Entrée de destination Excel].ExternalColumns[PRIX D'ACHAT]"
+                          dataType="wstr"
+                          length="255"
+                          name="PRIX D'ACHAT" />
+                        <externalMetadataColumn
+                          refId="Package\Conteneur de boucles Foreach\Load New Files\FULL CLASS.Inputs[Entrée de destination Excel].ExternalColumns[PRIX DE VENTE]"
+                          dataType="wstr"
+                          length="255"
+                          name="PRIX DE VENTE" />
+                        <externalMetadataColumn
+                          refId="Package\Conteneur de boucles Foreach\Load New Files\FULL CLASS.Inputs[Entrée de destination Excel].ExternalColumns[STOCK DISPONIBLE]"
+                          dataType="wstr"
+                          length="255"
+                          name="STOCK DISPONIBLE" />
+                        <externalMetadataColumn
+                          refId="Package\Conteneur de boucles Foreach\Load New Files\FULL CLASS.Inputs[Entrée de destination Excel].ExternalColumns[COMMANDE]"
+                          dataType="wstr"
+                          length="255"
+                          name="COMMANDE" />
+                        <externalMetadataColumn
+                          refId="Package\Conteneur de boucles Foreach\Load New Files\FULL CLASS.Inputs[Entrée de destination Excel].ExternalColumns[COMMERCIAL]"
+                          dataType="wstr"
+                          length="255"
+                          name="COMMERCIAL" />
+                        <externalMetadataColumn
+                          refId="Package\Conteneur de boucles Foreach\Load New Files\FULL CLASS.Inputs[Entrée de destination Excel].ExternalColumns[Port]"
+                          dataType="wstr"
+                          length="255"
+                          name="Port" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Conteneur de boucles Foreach\Load New Files\FULL CLASS.Outputs[Sortie d'erreur de destination Excel]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Sortie d'erreur de destination Excel"
+                      synchronousInputId="Package\Conteneur de boucles Foreach\Load New Files\FULL CLASS.Inputs[Entrée de destination Excel]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Conteneur de boucles Foreach\Load New Files\FULL CLASS.Outputs[Sortie d'erreur de destination Excel].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Conteneur de boucles Foreach\Load New Files\FULL CLASS.Outputs[Sortie d'erreur de destination Excel].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Conteneur de boucles Foreach\Load New Files\FULL CLASS.Outputs[Sortie d'erreur de destination Excel].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Conteneur de boucles Foreach\Load New Files\FULL CLASS.Outputs[Sortie d'erreur de destination Excel].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Conteneur de boucles Foreach\Load New Files\Source Excel"
+                  componentClassID="Microsoft.ExcelSource"
+                  contactInfo="Source Excel;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;1"
+                  description="Source Excel"
+                  name="Source Excel"
+                  usesDispositions="true"
+                  version="1">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                      name="OpenRowset">DONNEES$</property>
+                    <property
+                      dataType="System.String"
+                      description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="Commande SQL à exécuter."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                    <property
+                      dataType="System.String"
+                      description="Variable contenant la commande SQL à exécuter."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Spécifie le mode utilisé pour accéder à la base de données."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Mappage des paramètres de la commande SQL en variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Conteneur de boucles Foreach\Load New Files\Source Excel.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[Gestionnaire de connexions Excel]"
+                      connectionManagerRefId="Package.ConnectionManagers[Gestionnaire de connexions Excel]"
+                      description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\Conteneur de boucles Foreach\Load New Files\Source Excel.Outputs[Sortie de source Excel]"
+                      name="Sortie de source Excel">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Conteneur de boucles Foreach\Load New Files\Source Excel.Outputs[Sortie de source Excel].Columns[YEAR]"
+                          dataType="r8"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Conteneur de boucles Foreach\Load New Files\Source Excel.Outputs[Sortie de source Excel].ExternalColumns[YEAR]"
+                          lineageId="Package\Conteneur de boucles Foreach\Load New Files\Source Excel.Outputs[Sortie de source Excel].Columns[YEAR]"
+                          name="YEAR"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Conteneur de boucles Foreach\Load New Files\Source Excel.Outputs[Sortie de source Excel].Columns[Month]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Conteneur de boucles Foreach\Load New Files\Source Excel.Outputs[Sortie de source Excel].ExternalColumns[Month]"
+                          length="255"
+                          lineageId="Package\Conteneur de boucles Foreach\Load New Files\Source Excel.Outputs[Sortie de source Excel].Columns[Month]"
+                          name="Month"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Conteneur de boucles Foreach\Load New Files\Source Excel.Outputs[Sortie de source Excel].Columns[WEEK]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Conteneur de boucles Foreach\Load New Files\Source Excel.Outputs[Sortie de source Excel].ExternalColumns[WEEK]"
+                          length="255"
+                          lineageId="Package\Conteneur de boucles Foreach\Load New Files\Source Excel.Outputs[Sortie de source Excel].Columns[WEEK]"
+                          name="WEEK"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Conteneur de boucles Foreach\Load New Files\Source Excel.Outputs[Sortie de source Excel].Columns[N° POS]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Conteneur de boucles Foreach\Load New Files\Source Excel.Outputs[Sortie de source Excel].ExternalColumns[N° POS]"
+                          length="255"
+                          lineageId="Package\Conteneur de boucles Foreach\Load New Files\Source Excel.Outputs[Sortie de source Excel].Columns[N° POS]"
+                          name="N° POS"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Conteneur de boucles Foreach\Load New Files\Source Excel.Outputs[Sortie de source Excel].Columns[POS NAME]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Conteneur de boucles Foreach\Load New Files\Source Excel.Outputs[Sortie de source Excel].ExternalColumns[POS NAME]"
+                          length="255"
+                          lineageId="Package\Conteneur de boucles Foreach\Load New Files\Source Excel.Outputs[Sortie de source Excel].Columns[POS NAME]"
+                          name="POS NAME"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Conteneur de boucles Foreach\Load New Files\Source Excel.Outputs[Sortie de source Excel].Columns[CLASS]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Conteneur de boucles Foreach\Load New Files\Source Excel.Outputs[Sortie de source Excel].ExternalColumns[CLASS]"
+                          length="255"
+                          lineageId="Package\Conteneur de boucles Foreach\Load New Files\Source Excel.Outputs[Sortie de source Excel].Columns[CLASS]"
+                          name="CLASS"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Conteneur de boucles Foreach\Load New Files\Source Excel.Outputs[Sortie de source Excel].Columns[PROMOTER]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Conteneur de boucles Foreach\Load New Files\Source Excel.Outputs[Sortie de source Excel].ExternalColumns[PROMOTER]"
+                          length="255"
+                          lineageId="Package\Conteneur de boucles Foreach\Load New Files\Source Excel.Outputs[Sortie de source Excel].Columns[PROMOTER]"
+                          name="PROMOTER"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Conteneur de boucles Foreach\Load New Files\Source Excel.Outputs[Sortie de source Excel].Columns[ADRESS]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Conteneur de boucles Foreach\Load New Files\Source Excel.Outputs[Sortie de source Excel].ExternalColumns[ADRESS]"
+                          length="255"
+                          lineageId="Package\Conteneur de boucles Foreach\Load New Files\Source Excel.Outputs[Sortie de source Excel].Columns[ADRESS]"
+                          name="ADRESS"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Conteneur de boucles Foreach\Load New Files\Source Excel.Outputs[Sortie de source Excel].Columns[MARQUE]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Conteneur de boucles Foreach\Load New Files\Source Excel.Outputs[Sortie de source Excel].ExternalColumns[MARQUE]"
+                          length="255"
+                          lineageId="Package\Conteneur de boucles Foreach\Load New Files\Source Excel.Outputs[Sortie de source Excel].Columns[MARQUE]"
+                          name="MARQUE"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Conteneur de boucles Foreach\Load New Files\Source Excel.Outputs[Sortie de source Excel].Columns[SEGMENT]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Conteneur de boucles Foreach\Load New Files\Source Excel.Outputs[Sortie de source Excel].ExternalColumns[SEGMENT]"
+                          length="255"
+                          lineageId="Package\Conteneur de boucles Foreach\Load New Files\Source Excel.Outputs[Sortie de source Excel].Columns[SEGMENT]"
+                          name="SEGMENT"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Conteneur de boucles Foreach\Load New Files\Source Excel.Outputs[Sortie de source Excel].Columns[MODELES]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Conteneur de boucles Foreach\Load New Files\Source Excel.Outputs[Sortie de source Excel].ExternalColumns[MODELES]"
+                          length="255"
+                          lineageId="Package\Conteneur de boucles Foreach\Load New Files\Source Excel.Outputs[Sortie de source Excel].Columns[MODELES]"
+                          name="MODELES"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Conteneur de boucles Foreach\Load New Files\Source Excel.Outputs[Sortie de source Excel].Columns[CODE]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Conteneur de boucles Foreach\Load New Files\Source Excel.Outputs[Sortie de source Excel].ExternalColumns[CODE]"
+                          length="255"
+                          lineageId="Package\Conteneur de boucles Foreach\Load New Files\Source Excel.Outputs[Sortie de source Excel].Columns[CODE]"
+                          name="CODE"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Conteneur de boucles Foreach\Load New Files\Source Excel.Outputs[Sortie de source Excel].Columns[QUANTITE VENDUE]"
+                          dataType="r8"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Conteneur de boucles Foreach\Load New Files\Source Excel.Outputs[Sortie de source Excel].ExternalColumns[QUANTITE VENDUE]"
+                          lineageId="Package\Conteneur de boucles Foreach\Load New Files\Source Excel.Outputs[Sortie de source Excel].Columns[QUANTITE VENDUE]"
+                          name="QUANTITE VENDUE"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Conteneur de boucles Foreach\Load New Files\Source Excel.Outputs[Sortie de source Excel].Columns[PRIX D'ACHAT]"
+                          dataType="r8"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Conteneur de boucles Foreach\Load New Files\Source Excel.Outputs[Sortie de source Excel].ExternalColumns[PRIX D'ACHAT]"
+                          lineageId="Package\Conteneur de boucles Foreach\Load New Files\Source Excel.Outputs[Sortie de source Excel].Columns[PRIX D'ACHAT]"
+                          name="PRIX D'ACHAT"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Conteneur de boucles Foreach\Load New Files\Source Excel.Outputs[Sortie de source Excel].Columns[PRIX DE VENTE]"
+                          dataType="r8"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Conteneur de boucles Foreach\Load New Files\Source Excel.Outputs[Sortie de source Excel].ExternalColumns[PRIX DE VENTE]"
+                          lineageId="Package\Conteneur de boucles Foreach\Load New Files\Source Excel.Outputs[Sortie de source Excel].Columns[PRIX DE VENTE]"
+                          name="PRIX DE VENTE"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Conteneur de boucles Foreach\Load New Files\Source Excel.Outputs[Sortie de source Excel].Columns[STOCK DISPONIBLE]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Conteneur de boucles Foreach\Load New Files\Source Excel.Outputs[Sortie de source Excel].ExternalColumns[STOCK DISPONIBLE]"
+                          length="255"
+                          lineageId="Package\Conteneur de boucles Foreach\Load New Files\Source Excel.Outputs[Sortie de source Excel].Columns[STOCK DISPONIBLE]"
+                          name="STOCK DISPONIBLE"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Conteneur de boucles Foreach\Load New Files\Source Excel.Outputs[Sortie de source Excel].Columns[COMMANDE]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Conteneur de boucles Foreach\Load New Files\Source Excel.Outputs[Sortie de source Excel].ExternalColumns[COMMANDE]"
+                          length="255"
+                          lineageId="Package\Conteneur de boucles Foreach\Load New Files\Source Excel.Outputs[Sortie de source Excel].Columns[COMMANDE]"
+                          name="COMMANDE"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Conteneur de boucles Foreach\Load New Files\Source Excel.Outputs[Sortie de source Excel].ExternalColumns[YEAR]"
+                          dataType="r8"
+                          name="YEAR" />
+                        <externalMetadataColumn
+                          refId="Package\Conteneur de boucles Foreach\Load New Files\Source Excel.Outputs[Sortie de source Excel].ExternalColumns[Month]"
+                          dataType="wstr"
+                          length="255"
+                          name="Month" />
+                        <externalMetadataColumn
+                          refId="Package\Conteneur de boucles Foreach\Load New Files\Source Excel.Outputs[Sortie de source Excel].ExternalColumns[WEEK]"
+                          dataType="wstr"
+                          length="255"
+                          name="WEEK" />
+                        <externalMetadataColumn
+                          refId="Package\Conteneur de boucles Foreach\Load New Files\Source Excel.Outputs[Sortie de source Excel].ExternalColumns[N° POS]"
+                          dataType="wstr"
+                          length="255"
+                          name="N° POS" />
+                        <externalMetadataColumn
+                          refId="Package\Conteneur de boucles Foreach\Load New Files\Source Excel.Outputs[Sortie de source Excel].ExternalColumns[POS NAME]"
+                          dataType="wstr"
+                          length="255"
+                          name="POS NAME" />
+                        <externalMetadataColumn
+                          refId="Package\Conteneur de boucles Foreach\Load New Files\Source Excel.Outputs[Sortie de source Excel].ExternalColumns[CLASS]"
+                          dataType="wstr"
+                          length="255"
+                          name="CLASS" />
+                        <externalMetadataColumn
+                          refId="Package\Conteneur de boucles Foreach\Load New Files\Source Excel.Outputs[Sortie de source Excel].ExternalColumns[PROMOTER]"
+                          dataType="wstr"
+                          length="255"
+                          name="PROMOTER" />
+                        <externalMetadataColumn
+                          refId="Package\Conteneur de boucles Foreach\Load New Files\Source Excel.Outputs[Sortie de source Excel].ExternalColumns[ADRESS]"
+                          dataType="wstr"
+                          length="255"
+                          name="ADRESS" />
+                        <externalMetadataColumn
+                          refId="Package\Conteneur de boucles Foreach\Load New Files\Source Excel.Outputs[Sortie de source Excel].ExternalColumns[MARQUE]"
+                          dataType="wstr"
+                          length="255"
+                          name="MARQUE" />
+                        <externalMetadataColumn
+                          refId="Package\Conteneur de boucles Foreach\Load New Files\Source Excel.Outputs[Sortie de source Excel].ExternalColumns[SEGMENT]"
+                          dataType="wstr"
+                          length="255"
+                          name="SEGMENT" />
+                        <externalMetadataColumn
+                          refId="Package\Conteneur de boucles Foreach\Load New Files\Source Excel.Outputs[Sortie de source Excel].ExternalColumns[MODELES]"
+                          dataType="wstr"
+                          length="255"
+                          name="MODELES" />
+                        <externalMetadataColumn
+                          refId="Package\Conteneur de boucles Foreach\Load New Files\Source Excel.Outputs[Sortie de source Excel].ExternalColumns[CODE]"
+                          dataType="wstr"
+                          length="255"
+                          name="CODE" />
+                        <externalMetadataColumn
+                          refId="Package\Conteneur de boucles Foreach\Load New Files\Source Excel.Outputs[Sortie de source Excel].ExternalColumns[QUANTITE VENDUE]"
+                          dataType="r8"
+                          name="QUANTITE VENDUE" />
+                        <externalMetadataColumn
+                          refId="Package\Conteneur de boucles Foreach\Load New Files\Source Excel.Outputs[Sortie de source Excel].ExternalColumns[PRIX D'ACHAT]"
+                          dataType="r8"
+                          name="PRIX D'ACHAT" />
+                        <externalMetadataColumn
+                          refId="Package\Conteneur de boucles Foreach\Load New Files\Source Excel.Outputs[Sortie de source Excel].ExternalColumns[PRIX DE VENTE]"
+                          dataType="r8"
+                          name="PRIX DE VENTE" />
+                        <externalMetadataColumn
+                          refId="Package\Conteneur de boucles Foreach\Load New Files\Source Excel.Outputs[Sortie de source Excel].ExternalColumns[STOCK DISPONIBLE]"
+                          dataType="wstr"
+                          length="255"
+                          name="STOCK DISPONIBLE" />
+                        <externalMetadataColumn
+                          refId="Package\Conteneur de boucles Foreach\Load New Files\Source Excel.Outputs[Sortie de source Excel].ExternalColumns[COMMANDE]"
+                          dataType="wstr"
+                          length="255"
+                          name="COMMANDE" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\Conteneur de boucles Foreach\Load New Files\Source Excel.Outputs[Sortie d'erreur de source Excel]"
+                      isErrorOut="true"
+                      name="Sortie d'erreur de source Excel">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Conteneur de boucles Foreach\Load New Files\Source Excel.Outputs[Sortie d'erreur de source Excel].Columns[YEAR]"
+                          dataType="r8"
+                          lineageId="Package\Conteneur de boucles Foreach\Load New Files\Source Excel.Outputs[Sortie d'erreur de source Excel].Columns[YEAR]"
+                          name="YEAR" />
+                        <outputColumn
+                          refId="Package\Conteneur de boucles Foreach\Load New Files\Source Excel.Outputs[Sortie d'erreur de source Excel].Columns[Month]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Conteneur de boucles Foreach\Load New Files\Source Excel.Outputs[Sortie d'erreur de source Excel].Columns[Month]"
+                          name="Month" />
+                        <outputColumn
+                          refId="Package\Conteneur de boucles Foreach\Load New Files\Source Excel.Outputs[Sortie d'erreur de source Excel].Columns[WEEK]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Conteneur de boucles Foreach\Load New Files\Source Excel.Outputs[Sortie d'erreur de source Excel].Columns[WEEK]"
+                          name="WEEK" />
+                        <outputColumn
+                          refId="Package\Conteneur de boucles Foreach\Load New Files\Source Excel.Outputs[Sortie d'erreur de source Excel].Columns[N° POS]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Conteneur de boucles Foreach\Load New Files\Source Excel.Outputs[Sortie d'erreur de source Excel].Columns[N° POS]"
+                          name="N° POS" />
+                        <outputColumn
+                          refId="Package\Conteneur de boucles Foreach\Load New Files\Source Excel.Outputs[Sortie d'erreur de source Excel].Columns[POS NAME]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Conteneur de boucles Foreach\Load New Files\Source Excel.Outputs[Sortie d'erreur de source Excel].Columns[POS NAME]"
+                          name="POS NAME" />
+                        <outputColumn
+                          refId="Package\Conteneur de boucles Foreach\Load New Files\Source Excel.Outputs[Sortie d'erreur de source Excel].Columns[CLASS]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Conteneur de boucles Foreach\Load New Files\Source Excel.Outputs[Sortie d'erreur de source Excel].Columns[CLASS]"
+                          name="CLASS" />
+                        <outputColumn
+                          refId="Package\Conteneur de boucles Foreach\Load New Files\Source Excel.Outputs[Sortie d'erreur de source Excel].Columns[PROMOTER]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Conteneur de boucles Foreach\Load New Files\Source Excel.Outputs[Sortie d'erreur de source Excel].Columns[PROMOTER]"
+                          name="PROMOTER" />
+                        <outputColumn
+                          refId="Package\Conteneur de boucles Foreach\Load New Files\Source Excel.Outputs[Sortie d'erreur de source Excel].Columns[ADRESS]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Conteneur de boucles Foreach\Load New Files\Source Excel.Outputs[Sortie d'erreur de source Excel].Columns[ADRESS]"
+                          name="ADRESS" />
+                        <outputColumn
+                          refId="Package\Conteneur de boucles Foreach\Load New Files\Source Excel.Outputs[Sortie d'erreur de source Excel].Columns[MARQUE]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Conteneur de boucles Foreach\Load New Files\Source Excel.Outputs[Sortie d'erreur de source Excel].Columns[MARQUE]"
+                          name="MARQUE" />
+                        <outputColumn
+                          refId="Package\Conteneur de boucles Foreach\Load New Files\Source Excel.Outputs[Sortie d'erreur de source Excel].Columns[SEGMENT]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Conteneur de boucles Foreach\Load New Files\Source Excel.Outputs[Sortie d'erreur de source Excel].Columns[SEGMENT]"
+                          name="SEGMENT" />
+                        <outputColumn
+                          refId="Package\Conteneur de boucles Foreach\Load New Files\Source Excel.Outputs[Sortie d'erreur de source Excel].Columns[MODELES]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Conteneur de boucles Foreach\Load New Files\Source Excel.Outputs[Sortie d'erreur de source Excel].Columns[MODELES]"
+                          name="MODELES" />
+                        <outputColumn
+                          refId="Package\Conteneur de boucles Foreach\Load New Files\Source Excel.Outputs[Sortie d'erreur de source Excel].Columns[CODE]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Conteneur de boucles Foreach\Load New Files\Source Excel.Outputs[Sortie d'erreur de source Excel].Columns[CODE]"
+                          name="CODE" />
+                        <outputColumn
+                          refId="Package\Conteneur de boucles Foreach\Load New Files\Source Excel.Outputs[Sortie d'erreur de source Excel].Columns[QUANTITE VENDUE]"
+                          dataType="r8"
+                          lineageId="Package\Conteneur de boucles Foreach\Load New Files\Source Excel.Outputs[Sortie d'erreur de source Excel].Columns[QUANTITE VENDUE]"
+                          name="QUANTITE VENDUE" />
+                        <outputColumn
+                          refId="Package\Conteneur de boucles Foreach\Load New Files\Source Excel.Outputs[Sortie d'erreur de source Excel].Columns[PRIX D'ACHAT]"
+                          dataType="r8"
+                          lineageId="Package\Conteneur de boucles Foreach\Load New Files\Source Excel.Outputs[Sortie d'erreur de source Excel].Columns[PRIX D'ACHAT]"
+                          name="PRIX D'ACHAT" />
+                        <outputColumn
+                          refId="Package\Conteneur de boucles Foreach\Load New Files\Source Excel.Outputs[Sortie d'erreur de source Excel].Columns[PRIX DE VENTE]"
+                          dataType="r8"
+                          lineageId="Package\Conteneur de boucles Foreach\Load New Files\Source Excel.Outputs[Sortie d'erreur de source Excel].Columns[PRIX DE VENTE]"
+                          name="PRIX DE VENTE" />
+                        <outputColumn
+                          refId="Package\Conteneur de boucles Foreach\Load New Files\Source Excel.Outputs[Sortie d'erreur de source Excel].Columns[STOCK DISPONIBLE]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Conteneur de boucles Foreach\Load New Files\Source Excel.Outputs[Sortie d'erreur de source Excel].Columns[STOCK DISPONIBLE]"
+                          name="STOCK DISPONIBLE" />
+                        <outputColumn
+                          refId="Package\Conteneur de boucles Foreach\Load New Files\Source Excel.Outputs[Sortie d'erreur de source Excel].Columns[COMMANDE]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Conteneur de boucles Foreach\Load New Files\Source Excel.Outputs[Sortie d'erreur de source Excel].Columns[COMMANDE]"
+                          name="COMMANDE" />
+                        <outputColumn
+                          refId="Package\Conteneur de boucles Foreach\Load New Files\Source Excel.Outputs[Sortie d'erreur de source Excel].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Conteneur de boucles Foreach\Load New Files\Source Excel.Outputs[Sortie d'erreur de source Excel].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Conteneur de boucles Foreach\Load New Files\Source Excel.Outputs[Sortie d'erreur de source Excel].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Conteneur de boucles Foreach\Load New Files\Source Excel.Outputs[Sortie d'erreur de source Excel].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\Conteneur de boucles Foreach\Load New Files.Paths[BLANK CLASS]"
+                  endId="Package\Conteneur de boucles Foreach\Load New Files\BLANK CLASS.Inputs[Entrée de destination Excel]"
+                  name="BLANK CLASS"
+                  startId="Package\Conteneur de boucles Foreach\Load New Files\Fractionnement conditionnel.Outputs[BLANK CLASS]" />
+                <path
+                  refId="Package\Conteneur de boucles Foreach\Load New Files.Paths[Sortie de colonne dérivée]"
+                  endId="Package\Conteneur de boucles Foreach\Load New Files\Fractionnement conditionnel.Inputs[Entrée de fractionnement conditionnel]"
+                  name="Sortie de colonne dérivée"
+                  startId="Package\Conteneur de boucles Foreach\Load New Files\ETL Data.Outputs[Sortie de colonne dérivée]" />
+                <path
+                  refId="Package\Conteneur de boucles Foreach\Load New Files.Paths[Sortie de source Excel]"
+                  endId="Package\Conteneur de boucles Foreach\Load New Files\ETL Data.Inputs[Entrée de colonne dérivée]"
+                  name="Sortie de source Excel"
+                  startId="Package\Conteneur de boucles Foreach\Load New Files\Source Excel.Outputs[Sortie de source Excel]" />
+                <path
+                  refId="Package\Conteneur de boucles Foreach\Load New Files.Paths[Sortie par défaut de fractionnement conditionnel]"
+                  endId="Package\Conteneur de boucles Foreach\Load New Files\FULL CLASS.Inputs[Entrée de destination Excel]"
+                  name="Sortie par défaut de fractionnement conditionnel"
+                  startId="Package\Conteneur de boucles Foreach\Load New Files\Fractionnement conditionnel.Outputs[Sortie par défaut de fractionnement conditionnel]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:ForEachVariableMappings>
+        <DTS:ForEachVariableMapping
+          DTS:CreationName=""
+          DTS:DTSID="{6B69A988-C10B-4841-B8C5-4D685CA10CEE}"
+          DTS:ObjectName="{6B69A988-C10B-4841-B8C5-4D685CA10CEE}"
+          DTS:ValueIndex="0"
+          DTS:VariableName="User::File" />
+      </DTS:ForEachVariableMappings>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Cette section CDATA contient des informations sur la disposition du package. Elle comprend des informations telles que les coordonnées (x,y), la largeur et la hauteur.-->
+<!--Si vous modifiez manuellement cette section et commettez une erreur, vous pouvez la supprimer. -->
+<!--Le package pourra toujours se charger normalement, mais les informations de disposition précédente seront perdues et le concepteur réorganisera automatiquement les éléments sur l'aire de conception.-->
+<Objects
+  Version="8">
+  <!--Chaque nœud ci-dessous contiendra des propriétés qui n'affectent pas le comportement d'exécution.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="155,42"
+          Id="Package\Conteneur de boucles Foreach\Load New Files"
+          TopLeft="97,45" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="372,146"
+          Size="372,189"
+          Id="Package\Conteneur de boucles Foreach"
+          TopLeft="238,128" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Conteneur de boucles Foreach\Load New Files">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="217,70"
+          Id="Package\Conteneur de boucles Foreach\Load New Files\Fractionnement conditionnel"
+          TopLeft="414,344" />
+        <NodeLayout
+          Size="145,70"
+          Id="Package\Conteneur de boucles Foreach\Load New Files\FULL CLASS"
+          TopLeft="710,210" />
+        <NodeLayout
+          Size="185,91"
+          Id="Package\Conteneur de boucles Foreach\Load New Files\Source Excel"
+          TopLeft="144,43" />
+        <NodeLayout
+          Size="154,72"
+          Id="Package\Conteneur de boucles Foreach\Load New Files\BLANK CLASS"
+          TopLeft="178,217" />
+        <NodeLayout
+          Size="156,60"
+          Id="Package\Conteneur de boucles Foreach\Load New Files\ETL Data"
+          TopLeft="440,119" />
+        <EdgeLayout
+          Id="Package\Conteneur de boucles Foreach\Load New Files.Paths[BLANK CLASS]"
+          TopLeft="470.25,344">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-215.25,-55"
+              Start="0,0"
+              End="-215.25,-47.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,-14.7784522003035" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,-14.7784522003035"
+                    Point2="0,-18.7784522003035"
+                    Point3="-4,-18.7784522003035" />
+                  <mssgle:LineSegment
+                    End="-211.25,-18.7784522003035" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-211.25,-18.7784522003035"
+                    Point2="-215.25,-18.7784522003035"
+                    Point3="-215.25,-22.7784522003035" />
+                  <mssgle:LineSegment
+                    End="-215.25,-47.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-138.47248046875,-13.7784522003035,61.6949609375,9.5341796875"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Conteneur de boucles Foreach\Load New Files.Paths[Sortie par défaut de fractionnement conditionnel]"
+          TopLeft="574.75,344">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="207.75,-64"
+              Start="0,0"
+              End="207.75,-56.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,-17.8512898330804" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,-17.8512898330804"
+                    Point2="0,-21.8512898330804"
+                    Point3="4,-21.8512898330804" />
+                  <mssgle:LineSegment
+                    End="203.75,-21.8512898330804" />
+                  <mssgle:CubicBezierSegment
+                    Point1="203.75,-21.8512898330804"
+                    Point2="207.75,-21.8512898330804"
+                    Point3="207.75,-25.8512898330804" />
+                  <mssgle:LineSegment
+                    End="207.75,-56.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-3.77279296875003,-16.8512898330804,215.2955859375,12.1953125"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Conteneur de boucles Foreach\Load New Files.Paths[Sortie de source Excel]"
+          TopLeft="329,88.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="111,60.5"
+              Start="0,0"
+              End="103.5,60.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="51.5,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="51.5,0"
+                    Point2="55.5,0"
+                    Point3="55.5,4" />
+                  <mssgle:LineSegment
+                    End="55.5,56.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="55.5,56.5"
+                    Point2="55.5,60.5"
+                    Point3="59.5,60.5" />
+                  <mssgle:LineSegment
+                    End="103.5,60.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Conteneur de boucles Foreach\Load New Files.Paths[Sortie de colonne dérivée]"
+          TopLeft="520.25,179">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,165"
+              Start="0,0"
+              End="0,157.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,157.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Conteneur de boucles Foreach\Load New Files\FULL CLASS">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Conteneur de boucles Foreach\Load New Files\Source Excel">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Conteneur de boucles Foreach\Load New Files\BLANK CLASS">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
